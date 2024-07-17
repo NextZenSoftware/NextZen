@@ -1,4 +1,5 @@
 import Layout from '@/components/Layouts/Layout'
+import Link from 'next/link';
 import React from 'react'
 
 
@@ -9,7 +10,101 @@ export const metadata = {
 const page = () => {
   return (
     <Layout>
-      <h1 className=" text-center text-3xl mt-20">Contact Page</h1>
+      <div>
+        <div className=" h-80 w-full bg-purple-600  mb-24 relative">
+          <div className=" h-32 w-32 rounded-full bg-red-500 mx-auto "></div>
+          <h1 className=" text-center text-white  text-5xl font-mono font-extrabold mt-20 mb-2 ">
+            Contact Us.
+          </h1>
+          <h3 className=" text-center text-xl font-serif text-white  mb-10 ">
+            Get in touch or shoot us an email directly on{" "}
+            <span className=" font-semibold  text-gray-950 cursor-pointer ">
+              NextZenSoftware1234@gmail.com
+            </span>
+          </h3>
+          <div className=" flex mx-auto max-w-[90%] -translate-y-10 absolute inset-0 mt-5">
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+            <div className=" h-32 w-32 rounded-full bg-red-500 "></div>
+          </div>
+        </div>
+      </div>
+      <div className="flex  max-w-6xl mx-auto  mb-10  bg-slate-50  ">
+        <div className="w-full  py-12 rounded shadow-md border border-slate flex justify-center   ">
+          <form className="space-y-4 max-w-5xl mx-auto">
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-7 ">
+              <div className=" flex flex-col">
+                <div className="">
+                  <label
+                    htmlFor="full-name"
+                    className="block mb-1 text-lg font-mono font-semibold text-pure-greys-500"
+                  >
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="full-name"
+                    className=" px-40 py-3 max-w-2xl w-fit text-gray-700 bg-white border rounded-md focus:outline-none focus:ring focus:ring-slate-200"
+                    placeholder="Enter Your Name..."
+                    required
+                  />
+                </div>
+                <div className="">
+                  <label
+                    htmlFor="email"
+                    className="block mb-1  mt-2 text-lg  font-mono font-semibold text-pure-greys-500"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full px-40 py-3 text-gray-700 bg-white border rounded-md focus:outline-none focus:ring focus:ring-slate-200"
+                    placeholder="Enter Your Email..."
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="mb-2 text-lg font-mono font-semibold text-pure-greys-500"
+              >
+                Write Message
+              </label>
+              <textarea
+                id="message"
+                className=" block w-full px-40 py-2 text-gray-700 bg-white border rounded-md focus:outline-none focus:ring focus:ring-slate-200 max-w-2xl"
+                rows={4}
+                placeholder="Enter Your Message..."
+                required
+              ></textarea>
+            </div>
+            <div className="flex flex-col md:flex-row gap-5">
+              <a href="mailto:sakib@arlogiq.com" className="flex-1">
+                <button
+                  type="submit"
+                  className="w-full px-4 py-3 font-bold text-white bg-black rounded-md hover:bg-gray-800 focus:outline-none focus:ring focus:ring-blue-200"
+                >
+                  Send Message
+                </button>
+              </a>
+              <Link href="/" className="flex-1">
+                <button className="w-full px-4 py-3  font-bold text-white bg-black rounded-md hover:bg-gray-800 focus:outline-none focus:ring focus:ring-blue-200">
+                  Home
+                </button>
+              </Link>
+            </div>
+          </form>
+        </div>
+      </div>
     </Layout>
   );
 }

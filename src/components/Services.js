@@ -44,7 +44,7 @@ const Services = () => {
           {cardContent.map((data, index) => (
             <div
               key={index}
-              className=" bg-white border-2 border-purple-400 cursor-pointer shadow-md rounded-lg overflow-hidden transform transition duration-500 hover:scale-105 hover:shadow-lg"
+              className=" bg-white border-2 border-purple-400 cursor-pointer shadow-md rounded-lg overflow-hidden transform transition duration-500  hover:shadow-2xl"
             >
               <div className="flex justify-center items-center  p-4">
                 <img
