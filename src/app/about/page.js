@@ -8,7 +8,100 @@ export const metadata = {
 const page = () => {
   return (
     <Layout>
-      <h1 className=" text-center text-3xl mt-20">About Page</h1>
+      <div className='bg-purple-500 h-[450px]'>
+        <div>
+          <h1 className=" text-center text-6xl font-bold text-white h-20 pt-44 pb-11 tracking-tight">About Us</h1>
+        </div>
+        <div className='flex'>
+          <p className='justify-center text-center ml-96 mr-96 mt-5 mb-5 font-medium text-white w-full h-[162px] leading-7'>
+          Our talented <a href='#'>NextZen</a> developer has built multiple third-party products and worked on numerous <a href='#'>NextZen</a> websites. WordPress Developer is a Nextzen expert crew that offers fantastic NextZen knowledgeable services to assist you all with the style and development you would really like for the NextZen theme. We help you use the NextZen theme to develop unique solutions for various website types.
+          </p>
+        </div>
+      </div>
+      <div className='h-[500px] tracking-tight'>
+        <div className='pt-11 pb-9 w-full text-6xl font-bold text-center'>
+          <h1 className='text-black'>Our <span className='text-purple-500'>Vision</span></h1>
+        </div>
+        <div className='ml-28 mr-28 pt-5 pb-5 flex justify-center text-center'>
+          <p className='text-left pr-28 leading-7 text-gray-600'>Our vision is to provide web design, web development, web
+            <br></br>solutions, cost-effective and timely solutions to clients all over the
+            <br></br>world as a one-stop-shop for all web-based services.
+            <br></br>
+            <br></br>We forever expect to add real worth to your business through our
+            <br></br>ability in recent, unforeseen and creative ways to form an online
+            <br></br>website extraordinary in quality whenever by providing the best
+            <br></br>web site design with every single project so as to help achieve and
+            <br></br>surpass your business goals.</p>
+          <img className='bg-auto bg-no-repeat bg-center h-72 w-80' src='https://divithemesupport.com/wp-content/uploads/2020/01/vision1.png'>
+          </img>
+        </div>
+      </div>
+      <div className='h-[500px] tracking-tight'>
+        <div className='pt-11 pb-9 w-full text-6xl font-bold text-center'>
+          <h1 className='text-black'>Our <span className='text-purple-500'>Mission</span></h1>
+        </div>
+        <div className='ml-28 mr-28 pt-5 pb-5 flex justify-center text-center'>
+          <img className='bg-auto bg-no-repeat bg-center h-72 w-80' src='https://divithemesupport.com/wp-content/uploads/2020/01/mission.png'>
+          </img>
+          <ul className='pl-28 text-left leading-9 list-disc text-gray-600'>
+            <li>
+              To give quick and able answers to clients.
+            </li>
+            <li>
+              To energize, inspire and show systematic abilities and late
+              <br></br>
+              patterns to the whole Divi Theme Support.
+            </li>
+            <li>
+              To prepare the group to deal with all customers over the world
+              <br></br>
+              and keep up enduring client connections.
+            </li>
+            <li>
+              To get together for tech-meet once consistently inside the
+              <br></br>organization premises to talk about the most recent innovations
+              <br></br>and their procedures to be executed with Divi Theme Support.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div className='pt-11 pb-3 w-full text-6xl font-bold text-center'>
+          <h1 className='text-black'>Our <span className='text-purple-500'>Team</span></h1>
+        </div>
+        <div>
+          <p className='text-center leading-9 text-gray-600'>Divi Theme Support is directed by an experienced team that is dedicated to
+            <br></br>innovation, excellence and committed to delivering the very best web solutions
+            <br></br>to our global client base.
+          </p>
+        </div>
+      </div>
+      <div className='ml-28 mr-28 pt-6 pb-12 flex justify-evenly drop-shadow-2xl'>
+        <div className='border-2 border-purple-400 bg-white rounded-t-md overflow-hidden pb-8 transform transition duration-500 hover:shadow-2xl'>
+          <img className='w-72 h-80' src='https://images.pexels.com/photos/1157255/pexels-photo-1157255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'>
+          </img>
+          <h4 className='text-center pt-2 font-bold text-2xl'>Abou Hamid</h4>
+          <p className='text-center pt-1 text-gray-600'>Founder & CEO</p>
+        </div>
+        <div className='border-2 border-purple-400 bg-white rounded-t-md overflow-hidden pb-8 transform transition duration-500 hover:shadow-2xl'>
+          <img className='w-72 h-80' src='https://images.pexels.com/photos/1687633/pexels-photo-1687633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'>
+          </img>
+          <h4 className='text-center pt-2 font-bold text-2xl'>Md Amanullah</h4>
+          <p className='text-center pt-1 text-gray-600'>Co-Founder</p>
+        </div>
+        <div className='border-2 border-purple-400 bg-white rounded-t-md overflow-hidden pb-8 transform transition duration-500 hover:shadow-2xl'>
+          <img className='w-72 h-80' src='https://images.pexels.com/photos/73828/volcanic-eruption-eruption-volcano-volcanism-73828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'>
+          </img>
+          <h4 className='text-center pt-2 font-bold text-2xl'>Sheikh Majid Tarique</h4>
+          <p className='text-center pt-1 text-gray-600'>Co-Founder</p>
+        </div>
+        <div className='border-2 border-purple-400 bg-white rounded-t-md overflow-hidden pb-8 transform transition duration-500 hover:shadow-2xl'>
+          <img className='w-72 h-80' src='https://images.pexels.com/photos/73828/volcanic-eruption-eruption-volcano-volcanism-73828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'>
+          </img>
+          <h4 className='text-center pt-2 font-bold text-2xl'>Syed Yusuf</h4>
+          <p className='text-center pt-1 text-gray-600'>Co-Founder</p>
+        </div>
+      </div>
     </Layout>
   );
 }
