@@ -11,9 +11,9 @@ const page = () => {
   return (
     <Layout>
       <div>
-        <div className=" h-80 w-full bg-purple-600  mb-24 relative">
-          <div className=" h-32 w-32 rounded-full bg-red-500 mx-auto "></div>
-          <h1 className=" text-center text-white  text-5xl font-mono font-extrabold mt-20 mb-2 ">
+        <div className=" h-80 w-full bg-purple-600 flex flex-col justify-center items-center  mb-24 relative">
+          
+          <h1 className=" text-center  text-white  text-5xl font-mono font-extrabold mt-28 mb-2 ">
             Contact Us.
           </h1>
           <h3 className=" text-center text-xl font-serif text-white  mb-10 ">

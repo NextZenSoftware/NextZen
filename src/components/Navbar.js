@@ -20,12 +20,51 @@ const Navbar = () => {
             >
               ABOUT
             </Link>
-            <Link
-              href="/services"
-              className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
-            >
-              SERVICES
-            </Link>
+            <div className="relative group">
+              <Link
+                href="#"
+                className="text-gray-500 font-sans font-medium transition-all duration-300"
+              >
+                SERVICES
+                <select></select>
+              </Link>
+              <div className="absolute hidden  group-hover:block bg-gradient-to-r from-purple-500 via-white to-blue-500  -translate-x-16 w-56 rounded-md shadow-lg  ring-1 ring-black ring-opacity-5">
+                <div
+                  className="py-1 "
+                  role="menu"
+                  aria-orientation="vertical"
+                  aria-labelledby="options-menu"
+                  
+                >
+                
+                 
+                  <Link
+                    href="/services/service1"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    BUILDING WEBSITE
+                  </Link>
+                  <Link
+                    href="/services/service2"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    WEBSITE MAINTENANCE
+                  </Link>
+                  <Link
+                    href="/services/service3"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    E-COMMERCE DEVELOPMENT
+                  </Link>
+                  <Link
+                    href="/services/service4"
+                    className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  >
+                    SEARCH ENGINE OPTIMIZATION
+                  </Link>
+                </div>
+              </div>
+            </div>
             <Link
               href="/portfolio"
               className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
