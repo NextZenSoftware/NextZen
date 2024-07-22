@@ -7,9 +7,28 @@ export const metadata = {
 };
 const page = () => {
   return (
-    <Layout>
-      <h1 className=" text-center text-3xl mt-20">Portfolio Page</h1>
-    </Layout>
+    <>
+      <Layout>
+        <div className="container">
+          <div className=" w-full h-[400px] bg-purple-600  flex flex-col justify-center items-center">
+            <h1 className="text-[42px] font-bold font-sans text-white mt-10">
+              Portfolio
+            </h1>
+            <p className=" text-center max-w-2xl mx-auto text-white text-[16px] mt-2 font-sans font-semibold">
+              NextZen Software Solutions support has a strong portfolio of most successful
+              websites, eCommerce sites and Food Delivery App across a spectrum of
+              niches. Our portfolio offers you a detailed idea of our website
+              development strength, reputation, results, and abilities.
+            </p>
+          </div>
+          <div className=" container mt-20 flex flex-col justify-center items-center">
+            <h2 className=" text-3xl font-sans font-bold ">
+              Our <span className=' text-purple-600'>Portfolio</span>
+            </h2>
+          </div>
+        </div>
+      </Layout>
+    </>
   );
 }
 

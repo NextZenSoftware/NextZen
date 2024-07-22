@@ -13,7 +13,7 @@ const Projects = () => {
        {
          title: "Food Delivery Website",
          type: "Food App",
-         img: "/images/22.png",
+         img: "/images/61.png",
        },
        {
          title: "Education Platform",
@@ -45,6 +45,7 @@ const Projects = () => {
                 alt={project.title}
                 width={300}
                 height={200}
+                objectFit='cover'
                 className="w-full h-56 object-cover rounded-md"
               />
               <div className="p-4">

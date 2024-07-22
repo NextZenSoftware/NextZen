@@ -1,6 +1,7 @@
 import ChooseUs from "@/components/ChooseUs";
 import Hero from "@/components/Hero";
 import Layout from "@/components/Layouts/Layout";
+import LetsWorks from "@/components/LetsWorks";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
@@ -16,7 +17,8 @@ export default function Home() {
         <Services />
         <Projects />
         <Testorimonial />
-        <ChooseUs/>
+        <ChooseUs />
+        <LetsWorks/>
         
       </main>
     </Layout>
