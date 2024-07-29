@@ -9,24 +9,24 @@ const page = () => {
   return (
     <>
       <Layout>
-        <div className=" ">
-          <div className=" w-full min-h-screen bg-purple-600 ">
-            {/* Left Part */}
-
-            <div className="max-w-4xl mx-auto flex mt-20 gap-10">
-              <div className=" flex flex-col items-center justify-center w-[50%]">
-                <h1 className=" text-3xl font-sans font-bold text-start text-white">
+        <div>
+          <div className="w-full min-h-screen bg-purple-600">
+            {/* Container */}
+            <div className="max-w-4xl mx-auto flex flex-col md:flex-row mt-16 gap-10 px-4 md:px-0">
+              {/* Left Part */}
+              <div className="flex flex-col items-center md:items-start justify-center w-full md:w-1/2 lg:mt-5 mt-10">
+                <h1 className="lg:text-3xl md:text-2xl text-[24px] font-sans font-bold text-white text-center md:text-left">
                   E-COMMERCE DEVELOPMENT
                 </h1>
-                <p className=" text-white font-sans text-[16px] text-center mt-5 font-semibold">
-                  We Develope E-commerce  and maintenance is that the act of regularly checking your
-                  website for issues and mistakes and keeping it updated and
-                  relevant. This should be done on a regular basis so as to stay
-                  your website healthy, encourage continued traffic growth, and
-                  strengthen your SEO and Google rankings..
+                <p className="text-white font-sans text-[16px] text-center md:text-left mt-5 font-semibold">
+                  We develop e-commerce websites and maintenance involves
+                  regularly checking your website for issues and mistakes,
+                  keeping it updated and relevant. This should be done on a
+                  regular basis to keep your website healthy, encourage
+                  continued traffic growth, and strengthen your SEO and Google
+                  rankings.
                 </p>
-                <p className=" text-white font-sans text-[16px] text-center mt-5 font-semibold">
-                  {" "}
+                <p className="text-white font-sans text-[16px] text-center md:text-left mt-5 font-semibold">
                   A website is the critical first impression of your company for
                   your online visitors. It should be dynamic and fresh at all
                   times. Once you have decided to have your online business
@@ -35,25 +35,26 @@ const page = () => {
               </div>
 
               {/* Right Part */}
-              <div className="w-[45%]">
+              <div className="w-full md:w-1/2">
                 <Form />
               </div>
             </div>
           </div>
 
-          <div className=" h-[600px] max-w-4xl mx-auto flex flex-col justify-center items-center">
-            <h1 className=" text-3xl font-sans font-bold">
-              Website <span className=" text-blue-500">Maintenance</span>
+          <div className="h-auto max-w-4xl mx-auto flex flex-col justify-center items-center px-4 md:px-0 py-10">
+            <h1 className="lg:text-3xl text-[22px] font-sans font-bold text-center">
+              Website <span className="text-blue-500">Maintenance</span>
             </h1>
-            <p className=" text-[16px] font-sans font-semibold text-slate-400 mt-5 text-center">
-              A well-kept up site is crucial for constant service industries.
-              All organizations need ordinary site support to pull in and hold
-              clients, keep up internet search rankings and present new data.
+            <p className="text-[16px] font-sans font-semibold text-slate-400 mt-5 text-center">
+              A well-maintained site is crucial for constant service industries.
+              All organizations need regular site maintenance to attract and
+              retain customers, maintain search rankings, and present new
+              information.
             </p>
 
-            <div className=" max-w-4xl mx-auto flex  justify-between gap-10 mt-20">
+            <div className="w-full flex flex-col md:flex-row justify-between gap-10 mt-20">
               {/* Left Part */}
-              <div className=" relative w-[50%] h-24">
+              <div className="relative w-full md:w-1/2 h-24">
                 <Image
                   src={"/images/53.jpeg"}
                   width={400}
@@ -63,20 +64,19 @@ const page = () => {
               </div>
 
               {/* Right Part */}
-              <div className=" w-[50%]">
-                <h1 className=" text-[14px] font-sans font-semibold text-slate-500  text-center">
-                  To make your site bug free, we offer regular help checkups and
-                  improvements. Our team experts take care of any issue arises
-                  through third-party plugins or by the core itself. Your
-                  website issue would be resolved at the first ticket and first
-                  priority.
+              <div className="w-full md:w-1/2 lg:mt-0 mt-14">
+                <h1 className="text-[14px] font-sans font-semibold text-slate-500 text-center md:text-left">
+                  To make your site bug-free, we offer regular support checkups
+                  and improvements. Our team experts take care of any issue
+                  arising through third-party plugins or by the core itself.
+                  Your website issue would be resolved at the first ticket and
+                  first priority.
                 </h1>
-                <h2 className=" text-[14px] font-sans font-semibold text-slate-500 mt-5 text-center">
+                <h2 className="text-[14px] font-sans font-semibold text-slate-500 mt-5 text-center md:text-left">
                   The advantage of our website maintenance program is you can
-                  edit, add and update content as and when needed. As in system,
-                  we do take a full backup prior to any major update of the
-                  website and even if needed the backup can be on-demand from
-                  the client.
+                  edit, add and update content as needed. We take a full backup
+                  prior to any major update of the website and can provide
+                  on-demand backups from the client if needed.
                 </h2>
               </div>
             </div>

@@ -1,5 +1,8 @@
-import Layout from '@/components/Layouts/Layout'
-import React from 'react'
+
+import Layout from "@/components/Layouts/Layout";
+import LetsWorks from "@/components/LetsWorks";
+import Image from "next/image";
+import React, { lazy } from "react";
 
 export const metadata = {
   title: "About | NextZen Software Solutions",
@@ -8,102 +11,207 @@ export const metadata = {
 const page = () => {
   return (
     <Layout>
-      <div className='bg-purple-500 h-[450px]'>
+      <div className="bg-purple-500 h-[450px] pb-5">
         <div>
-          <h1 className=" text-center text-6xl font-bold text-white h-20 pt-44 pb-11 tracking-tight">About Us</h1>
+          <h1 className=" text-center lg:text-5xl md:text-3xl text-2xl font-bold text-white h-20 pt-44 pb-11 tracking-tight">
+            About Us
+          </h1>
         </div>
-        <div className='flex'>
-          <p className='justify-center text-center ml-96 mr-96 mt-5 mb-5 font-medium text-white w-full h-[162px] leading-7'>
-          Our talented <a href='#'>NextZen</a> developer has built multiple third-party products and worked on numerous <a href='#'>NextZen</a> websites. WordPress Developer is a Nextzen expert crew that offers fantastic NextZen knowledgeable services to assist you all with the style and development you would really like for the NextZen theme. We help you use the NextZen theme to develop unique solutions for various website types.
+        <div className="flex max-w-3xl mx-auto justify-center items-center">
+          <p className="font-medium lg:text-[18px] md:text-[16px] text-[14px] text-white lg:leading-7 lg:mt-8 mt-1 text-center px-3">
+            Our talented{" "}
+            <a href="/" className="  hover:underline">
+              NextZen
+            </a>{" "}
+            developer has built multiple third-party products and worked on
+            numerous{" "}
+            <a href="/" className="  hover:underline">
+              NextZen
+            </a>{" "}
+            websites. NextZen knowledgeable services to  assist you all with the
+            style and development you would really like for the NextZen theme.
+            We help you use the NextZen theme to develop unique solutions for
+            various  website types.
           </p>
         </div>
       </div>
-      <div className='h-[500px] tracking-tight'>
-        <div className='pt-11 pb-9 w-full text-6xl font-bold text-center'>
-          <h1 className='text-black'>Our <span className='text-purple-500'>Vision</span></h1>
+      {/* Vission Section */}
+
+      <div className="h-auto tracking-tight">
+        <div className="pt-11 pb-9 w-full text-center">
+          <h1 className="text-black lg:text-4xl md:text-3xl text-2xl font-bold">
+            Our <span className="text-purple-500">Vision</span>
+          </h1>
         </div>
-        <div className='ml-28 mr-28 pt-5 pb-5 flex justify-center text-center'>
-          <p className='text-left pr-28 leading-7 text-gray-600'>Our vision is to provide web design, web development, web
-            <br></br>solutions, cost-effective and timely solutions to clients all over the
-            <br></br>world as a one-stop-shop for all web-based services.
-            <br></br>
-            <br></br>We forever expect to add real worth to your business through our
-            <br></br>ability in recent, unforeseen and creative ways to form an online
-            <br></br>website extraordinary in quality whenever by providing the best
-            <br></br>web site design with every single project so as to help achieve and
-            <br></br>surpass your business goals.</p>
-          <img className='bg-auto bg-no-repeat bg-center h-72 w-80' src='https://divithemesupport.com/wp-content/uploads/2020/01/vision1.png'>
-          </img>
+        <div className="max-w-4xl mx-auto flex flex-col lg:flex-row md:flex-row gap-10  lg:mt-10 md:mt-5 ">
+          <div className="w-full lg:w-1/2 md:w-1/2 lg:mt-5 px-4">
+            <p className="text-gray-600 text-start text-base md:text-sm lg:text-base">
+              Our vision is to provide web design, web development, web
+              solutions, cost-effective and timely solutions to clients all over
+              the world as a one-stop-shop for all web-based services.
+            </p>
+            <p className="mt-3 text-gray-600 text-start text-base md:text-sm lg:text-base">
+              We forever expect to add real worth to your business through our
+              ability in recent, unforeseen and creative ways to form an online
+              website extraordinary in quality whenever by providing the best
+              website design with every single project so as to help achieve and
+              surpass your business goals.
+            </p>
+          </div>
+          <div className="w-full lg:w-1/2 md:w-1/2 sm:items-center lg:pl-5 pl-10">
+            <Image
+              src="/images/vision1.png"
+              width={100}
+              height={100}
+              objectFit="cover"
+              alt="Vision Image"
+              className="w-[80%] h-auto"
+              loading="lazy"
+            />
+          </div>
         </div>
       </div>
-      <div className='h-[500px] tracking-tight'>
-        <div className='pt-11 pb-9 w-full text-6xl font-bold text-center'>
-          <h1 className='text-black'>Our <span className='text-purple-500'>Mission</span></h1>
+
+      {/* Mission selection */}
+
+      <div className="tracking-tight max-w-5xl mx-auto px-4 lg:mt-10">
+        <div className="pt-11 pb-9 w-full text-center">
+          <h1 className="text-black lg:text-4xl md:text-3xl text-2xl font-bold">
+            Our <span className="text-purple-500">Mission</span>
+          </h1>
         </div>
-        <div className='ml-28 mr-28 pt-5 pb-5 flex justify-center text-center'>
-          <img className='bg-auto bg-no-repeat bg-center h-72 w-80' src='https://divithemesupport.com/wp-content/uploads/2020/01/mission.png'>
-          </img>
-          <ul className='pl-28 text-left leading-9 list-disc text-gray-600'>
-            <li>
-              To give quick and able answers to clients.
-            </li>
+        <div className="flex flex-col lg:flex-row md:flex-row items-center lg:justify-center lg:items-center gap-10 lg:mt-10">
+          <div className="flex justify-center mt-10 lg:mt-0">
+            <Image
+              src="/images/mission.png"
+              width={300}
+              height={300}
+              objectFit="cover"
+              alt="Mission Image"
+              className="h-auto"
+            />
+          </div>
+          <ul className="text-left leading-7 list-disc text-gray-600 lg:pl-8 mt-10 lg:mt-0 lg:max-w-lg  lg:px-0 px-4 ">
+            <li>To give quick and able answers to clients.</li>
             <li>
               To energize, inspire and show systematic abilities and late
-              <br></br>
-              patterns to the whole Divi Theme Support.
+              patterns to the whole NextZen solutions Support.
             </li>
             <li>
-              To prepare the group to deal with all customers over the world
-              <br></br>
-              and keep up enduring client connections.
+              To prepare the group to deal with all customers over the world and
+              keep up enduring client connections.
             </li>
             <li>
               To get together for tech-meet once consistently inside the
-              <br></br>organization premises to talk about the most recent innovations
-              <br></br>and their procedures to be executed with Divi Theme Support.
+              organization premises to talk about the most recent innovations
+              and their procedures to be executed with NextZen solutions
+              Support.
             </li>
           </ul>
         </div>
       </div>
+
       <div>
-        <div className='pt-11 pb-3 w-full text-6xl font-bold text-center'>
-          <h1 className='text-black'>Our <span className='text-purple-500'>Team</span></h1>
+        {/* Team Members Section */}
+        <div className="pt-11 pb-3 w-full  font-bold text-center mt-10">
+          <h1 className="text-black lg:text-3xl md:text-2xl text-2xl">
+            Our{" "}
+            <span className="text-purple-500 lg:text-3xl md:text-2xl text-2xl">
+              Team
+            </span>
+          </h1>
         </div>
         <div>
-          <p className='text-center leading-9 text-gray-600'>Divi Theme Support is directed by an experienced team that is dedicated to
-            <br></br>innovation, excellence and committed to delivering the very best web solutions
-            <br></br>to our global client base.
+          <p className="text-center  text-gray-600 max-w-2xl mx-auto lg:text-[18px] md:text-[16px] text-sm px-3">
+            NextZen Software Solutions Support is directed by an experienced
+            team that is dedicated to innovation, excellence and committed to
+            delivering the very best web solutions to our global client base.
           </p>
         </div>
       </div>
-      <div className='ml-28 mr-28 pt-6 pb-12 flex justify-evenly drop-shadow-2xl'>
-        <div className='border-2 border-purple-400 bg-white rounded-t-md overflow-hidden pb-8 transform transition duration-500 hover:shadow-2xl'>
-          <img className='w-72 h-80' src='https://images.pexels.com/photos/1157255/pexels-photo-1157255.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'>
-          </img>
-          <h4 className='text-center pt-2 font-bold text-2xl'>Abou Hamid</h4>
-          <p className='text-center pt-1 text-gray-600'>Founder & CEO</p>
+
+      {/* Cards Section */}
+      <div className="gap-2 grid  lg:grid-cols-4 max-w-6xl mx-auto mt-10 mb-10 lg:px-0 px-4 ">
+        {/* card-1 */}
+        <div className=" h-96 bg-white rounded-md overflow-hidden  transition-all duration-500 shadow-xl">
+          <div>
+            <Image
+              src={"/images/majid.jpg"}
+              width={300}
+              height={300}
+              objectFit="contain"
+              className=" h-64"
+            />
+          </div>
+          <h4 className="text-center pt-2 font-bold text-[20px] mt-5">
+            SHEIKH MAJID
+          </h4>
+          <p className="text-center pt-1 text-gray-600 text-[16px]">
+            Founder & CEO
+          </p>
         </div>
-        <div className='border-2 border-purple-400 bg-white rounded-t-md overflow-hidden pb-8 transform transition duration-500 hover:shadow-2xl'>
-          <img className='w-72 h-80' src='https://images.pexels.com/photos/1687633/pexels-photo-1687633.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'>
-          </img>
-          <h4 className='text-center pt-2 font-bold text-2xl'>Md Amanullah</h4>
-          <p className='text-center pt-1 text-gray-600'>Co-Founder</p>
+        {/* card-2 */}
+        <div className=" h-96 bg-white rounded-md overflow-hidden  transition-all duration-500 shadow-xl">
+          <div>
+            <Image
+              src={"/images/hamid.jpg"}
+              width={300}
+              height={300}
+              objectFit="contain"
+              className=" h-64"
+            />
+          </div>
+          <h4 className="text-center pt-2 font-bold text-[20px] mt-5">
+            ABOU HAMID
+          </h4>
+          <p className="text-center pt-1 text-gray-600 text-[16px]">
+            Co-Founder
+          </p>
         </div>
-        <div className='border-2 border-purple-400 bg-white rounded-t-md overflow-hidden pb-8 transform transition duration-500 hover:shadow-2xl'>
-          <img className='w-72 h-80' src='https://images.pexels.com/photos/73828/volcanic-eruption-eruption-volcano-volcanism-73828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'>
-          </img>
-          <h4 className='text-center pt-2 font-bold text-2xl'>Sheikh Majid Tarique</h4>
-          <p className='text-center pt-1 text-gray-600'>Co-Founder</p>
+
+        {/* card-3 */}
+        <div className=" h-96 bg-white rounded-md overflow-hidden  transition-all duration-500 shadow-xl">
+          <div>
+            <Image
+              src={"/images/amaan.jpg"}
+              width={300}
+              height={300}
+              objectFit="contain"
+              className=" h-64"
+            />
+          </div>
+          <h4 className="text-center pt-2 font-bold text-[20px] mt-5">
+            MD. AMAAN
+          </h4>
+          <p className="text-center pt-1 text-gray-600 text-[16px]">
+            Project Manager
+          </p>
         </div>
-        <div className='border-2 border-purple-400 bg-white rounded-t-md overflow-hidden pb-8 transform transition duration-500 hover:shadow-2xl'>
-          <img className='w-72 h-80' src='https://images.pexels.com/photos/73828/volcanic-eruption-eruption-volcano-volcanism-73828.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'>
-          </img>
-          <h4 className='text-center pt-2 font-bold text-2xl'>Syed Yusuf</h4>
-          <p className='text-center pt-1 text-gray-600'>Co-Founder</p>
+
+        {/* card-4 */}
+        <div className=" h-96 bg-white rounded-md overflow-hidden  transition-all duration-500 shadow-xl">
+          <div>
+            <Image
+              src={"/images/syed.jpg"}
+              width={300}
+              height={300}
+              objectFit="contain"
+              className=" h-64 "
+            />
+          </div>
+          <h4 className="text-center pt-2 font-bold text-[20px] mt-5">
+            SYED F.YUSUF
+          </h4>
+          <p className="text-center pt-1 text-gray-600 text-[16px]">
+            ML Expert
+          </p>
         </div>
+      </div>
+      <div>
+        <LetsWorks/>
       </div>
     </Layout>
   );
-}
+};
 
-export default page
+export default page;
