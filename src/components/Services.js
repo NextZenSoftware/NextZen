@@ -23,14 +23,14 @@ const cardContent = [
 
 const Services = () => {
   return (
-    <div className="container mx-auto mt-32">
+    <div className="container mx-auto mt-16 px-4 md:px-8 lg:px-12">
       <div className="flex flex-col max-w-[950px] mx-auto">
         {/* Top */}
-        <div className="flex flex-col items-center max-w-3xl mx-auto">
-          <h1 className="text-5xl font-bold font-serif">
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold font-serif">
             Our <span className="text-purple-700">Services</span>
           </h1>
-          <p className="mt-5 text-center text-gray-600 font-sans font-medium">
+          <p className="mt-5 text-sm md:text-base lg:text-lg text-gray-600 font-sans font-medium">
             The visual design of your website is as crucial as the quality of
             your product or service. We employ innovative web design techniques
             to create visually appealing websites with stunning features. Our
@@ -40,13 +40,13 @@ const Services = () => {
         </div>
 
         {/* Bottom */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {cardContent.map((data, index) => (
             <div
               key={index}
-              className=" bg-white border-2 border-purple-400 cursor-pointer shadow-md rounded-lg overflow-hidden transform transition duration-500  hover:shadow-2xl"
+              className="bg-white border-2 border-purple-400 cursor-pointer shadow-md rounded-lg overflow-hidden transform transition duration-500 hover:shadow-2xl"
             >
-              <div className="flex justify-center items-center  p-4">
+              <div className="flex justify-center items-center p-4">
                 <img
                   src={data.img}
                   alt={data.title}
@@ -54,7 +54,7 @@ const Services = () => {
                 />
               </div>
               <div className="p-6">
-                <h2 className="text-2xl font-title text-center font-medium text-black mb-4">
+                <h2 className="text-lg md:text-xl lg:text-2xl font-title text-center font-medium text-black mb-4">
                   {data.title}
                 </h2>
                 <p className="leading-snug font-sans font-medium text-center text-gray-600">

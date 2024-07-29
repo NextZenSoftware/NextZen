@@ -8,10 +8,10 @@ const LetsWorks = () => {
        
         <div className="flex flex-col justify-center items-center">
           <div className=" max-w-2xl mx-auto  flex-col text-center space-y-4">
-            <h1 className=" text-white text-3xl font-extrabold">
+            <h1 className=" text-white  lg:text-3xl md:text-2xl text-xl font-extrabold">
               Let's Work Together!
             </h1>
-            <p className=" text-white text-center font-sans ">
+            <p className=" text-white lg:[16px] text[14px] px-2 text-center font-sans ">
               So, if you are interested in working with us with your exciting
               new project choose a package to start with and customize from
               there! We will work closely with you to achieve your goals.
