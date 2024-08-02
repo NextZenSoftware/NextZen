@@ -59,7 +59,7 @@ const Hero = () => {
           </h3>
           <p className="pt-5 md:pt-10 text-gray-600 font-sans font-medium">
             Do you want to step up your game and make the best out of the
-            world's most popular page builder? Then you have come to the right
+            world is most popular page builder Then you have come to the right
             place. Our mission is to provide you with the best tools available
             and enable you to build stunning & fabulous website designs.
           </p>
