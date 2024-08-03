@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const cardContent = [
@@ -47,11 +48,13 @@ const Services = () => {
               className="bg-white border-2 border-purple-400 cursor-pointer shadow-md rounded-lg overflow-hidden transform transition duration-500 hover:shadow-2xl"
             >
               <div className="flex justify-center items-center p-4">
-                <img
-                  src={data.img}
-                  alt={data.title}
-                  className="w-24 h-24 object-cover"
-                />
+                <Image
+                src={data.img}
+                alt={data.title}
+                width={300}
+                height={200}
+                className="w-24 h-24 object-cover mb-5"
+              />
               </div>
               <div className="p-6">
                 <h2 className="text-lg md:text-xl lg:text-2xl font-title text-center font-medium text-black mb-4">

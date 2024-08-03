@@ -41,7 +41,7 @@ const Footer = () => {
           </div>
           <div className="text-sm text-center my-2 flex items-center gap-3 hover:text-blue-700 cursor-pointer transition-all duration-200">
             <MdEmail size={25} />
-            <span>nextzensoftware123@gmail.com</span>
+            <Link href={"/contact"}> <span>nextzensoftware123@gmail.com</span> </Link>
           </div>
         </div>
       </div>
@@ -90,26 +90,36 @@ const Footer = () => {
 
       <div className="flex flex-col items-center">
         <div className="mt-5 space-x-3 flex">
-          <FaFacebookSquare
-            size={25}
-            className="hover:text-blue-700 cursor-pointer transition-all duration-200"
-          />
-          <FaSquareXTwitter
-            size={25}
-            className="hover:text-blue-700 cursor-pointer transition-all duration-200"
-          />
-          <BsLinkedin
-            size={25}
-            className="hover:text-blue-700 cursor-pointer transition-all duration-200"
-          />
-          <FaGithubSquare
-            size={25}
-            className="hover:text-blue-700 cursor-pointer transition-all duration-200"
-          />
-          <FaInstagramSquare
-            size={25}
-            className="hover:text-blue-700 cursor-pointer transition-all duration-200"
-          />
+          <a href="https://www.facebook.com/nextzensoftwaresolutions" target="_blank">
+            <FaFacebookSquare
+              size={25}
+              className="hover:text-blue-700 cursor-pointer transition-all duration-200"
+            />
+          </a>
+          <a href="https://x.com/NextZenSoftware" target="_blank">
+            <FaSquareXTwitter
+              size={25}
+              className="hover:text-blue-700 cursor-pointer transition-all duration-200"
+            />
+          </a>
+          <a href="https://www.linkedin.com/company/103739440/admin/dashboard/" target="_blank">
+            <BsLinkedin
+              size={25}
+              className="hover:text-blue-700 cursor-pointer transition-all duration-200"
+            />
+          </a>
+          <a href="https://github.com/NextZenSoftware" target="_blank">
+            <FaGithubSquare
+              size={25}
+              className="hover:text-blue-700 cursor-pointer transition-all duration-200"
+            />
+          </a>
+          <a href="https://www.instagram.com/nextzensoftwaresolutionspvtltd/" target="_blank">
+            <FaInstagramSquare
+              size={25}
+              className="hover:text-blue-700 cursor-pointer transition-all duration-200"
+            />
+          </a>
         </div>
         <div>
           <h5 className="text-center text-xs mt-4">
