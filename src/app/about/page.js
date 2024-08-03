@@ -61,12 +61,11 @@ const page = () => {
           <div className="w-full lg:w-1/2 md:w-1/2 sm:items-center lg:pl-5 pl-10">
             <Image
               src="/images/vision1.png"
-              width={100}
-              height={100}
+              width={300}
+              height={300}
               objectFit="cover"
               alt="Vision Image"
-              className="w-[80%] h-auto"
-              loading="lazy"
+              className="h-auto"
             />
           </div>
         </div>
