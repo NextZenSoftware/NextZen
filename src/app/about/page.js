@@ -138,6 +138,7 @@ const page = () => {
               src={"/images/majid.jpg"}
               width={300}
               height={300}
+              alt="Majid"
               objectFit="contain"
               className=" h-64"
             />
@@ -156,6 +157,7 @@ const page = () => {
               src={"/images/hamid.jpg"}
               width={300}
               height={300}
+              alt="Hamid"
               objectFit="contain"
               className=" h-64"
             />
@@ -175,6 +177,7 @@ const page = () => {
               src={"/images/amaan.jpg"}
               width={300}
               height={300}
+              alt="Amaan"
               objectFit="contain"
               className=" h-64"
             />
@@ -194,6 +197,7 @@ const page = () => {
               src={"/images/syed.jpg"}
               width={300}
               height={300}
+              alt="Syed"
               objectFit="contain"
               className=" h-64 "
             />
@@ -207,7 +211,7 @@ const page = () => {
         </div>
       </div>
       <div>
-        <LetsWorks/>
+        <LetsWorks />
       </div>
     </Layout>
   );
