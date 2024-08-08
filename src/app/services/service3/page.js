@@ -59,6 +59,7 @@ const page = () => {
                   src={"/images/53.jpeg"}
                   width={400}
                   height={400}
+                  alt="Service3"
                   objectFit="cover"
                 />
               </div>
