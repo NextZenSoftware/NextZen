@@ -134,7 +134,7 @@ const Navbar = () => {
             </button>
           </div>
         </div>
-        {/* Mobile menu */}
+        {/* Mobile menu */} 
         {isMobileMenuOpen && (
           <div className="md:hidden bg-gray-100 w-[70%] absolute right-0 h-[1000px] top-0 py-72 ">
             <div className="flex flex-col items-center py-4 space-y-4">
