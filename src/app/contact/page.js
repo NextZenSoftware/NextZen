@@ -75,10 +75,7 @@ const Page = () => {
           </div> */}
         </div>
       </div>
-      <div
-        className="flex max-w-6xl px-3 mx-auto mb-10 bg-slate-50 lg:px-0 aos-box "
-        data-aos="fade-up"
-      >
+      <div className="flex max-w-6xl px-3 mx-auto mb-10 bg-slate-50 lg:px-0">
         <div className="flex justify-center w-full py-12 border rounded shadow-md lg:px-0 border-slate-400">
           <form
             ref={form}
