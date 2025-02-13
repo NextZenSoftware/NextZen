@@ -58,7 +58,7 @@ const TeamCard = ({ src, name, position }) => (
   </div>
 );
 
-const page = () => {
+const Page = () => {
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration
@@ -180,4 +180,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
