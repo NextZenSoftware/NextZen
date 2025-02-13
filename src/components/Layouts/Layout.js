@@ -4,7 +4,7 @@ import Footer from '../Footer'
 
 const Layout = ({children}) => {
   return (
-    <div className=' className=" bg-gradient-to-tr from-purple-200 via-white to-white"'>
+    <div className=' bg-gradient-to-tr from-purple-200 via-white to-white'>
       <header>
         <Navbar />
       </header>

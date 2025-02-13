@@ -2,7 +2,10 @@
 import Layout from "@/components/Layouts/Layout";
 import LetsWorks from "@/components/LetsWorks";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const metadata = {
   title: "Portfolio | NextZen Software Solutions",
@@ -10,54 +13,84 @@ const metadata = {
 };
 
 const Page = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      offset: 200, // Offset (distance from top to trigger animation)
+    });
+  }, []);
   const projectData = [
     {
       id: "1",
-      title: "Education Platform",
+      title: "Bait Al Tahzeeb",
       description:
         "An advanced DevOps pipeline using Kubernetes, Terraform, and Jenkins.",
       category: "WEB",
-      img: "/images/66.jpg",
+      img: "/images/img666.png",
+      btnn: "https://baitaltahzeeb.com/",
     },
     {
       id: "2",
+      title: "Book Store",
+      description:
+        "An advanced DevOps pipeline using Kubernetes, Terraform, and Jenkins.",
+      category: "WEB",
+      img: "/images/img665.jpg",
+      btnn: "https://bookstore-1-9tyf.onrender.com",
+    },
+    {
+      id: "3",
       title: "Crime Rate Predication System",
       description:
         "An advanced DevOps pipeline using Kubernetes, Terraform, and Jenkins.",
       category: "ML",
       img: "/images/71.jpg",
+      btnn: "",
     },
     {
-      id: "3",
+      id: "4",
+      title: "My Article",
+      description:
+        "An advanced DevOps pipeline using Kubernetes, Terraform, and Jenkins.",
+      category: "WEB",
+      img: "/images/img444.png",
+      btnn: "https://myarticle-website.onrender.com",
+    },
+    {
+      id: "5",
       title: "Car Price Predications",
       description:
         "An advanced DevOps pipeline using Kubernetes, Terraform, and Jenkins.",
       category: "ML",
       img: "/images/72.jpg",
+      btnn: "",
     },
     {
-      id: "4",
+      id: "6",
       title: "E-Commerce",
       description:
         "An advanced DevOps pipeline using Kubernetes, Terraform, and Jenkins.",
       category: "WEB",
       img: "/images/65.jpg",
+      btnn: "",
     },
     {
-      id: "5",
+      id: "7",
       title: "Food Delivery App",
       description:
         "An advanced DevOps pipeline using Kubernetes, Terraform, and Jenkins.",
       category: "WEB",
       img: "/images/67.png",
+      btnn: "https://food-ordering-ed4o.onrender.com/",
     },
     {
-      id: "6",
+      id: "8",
       title: "GIF Generaters",
       description:
         "An advanced DevOps pipeline using Kubernetes, Terraform, and Jenkins.",
       category: "WEB",
       img: "/images/64.jpg",
+      btnn: "",
     },
   ];
 
@@ -75,10 +108,10 @@ const Page = () => {
       <Layout>
         <div className="container">
           <div className=" h-[400px] bg-purple-600  flex flex-col justify-center items-center">
-            <h1 className="lg:text-[42px] md:text-[24px] text-[22px] font-bold font-sans text-white mt-10">
+            <h1 className="lg:text-[42px] md:text-[24px] text-[22px] font-bold font-sans text-white mt-10 aos-box " data-aos="fade-up">
               Portfolio
             </h1>
-            <p className=" text-center max-w-2xl mx-auto text-white lg:text-[16px] md:text-[14px] text-sm mt-2 font-sans font-semibold lg:px-0 px-4">
+            <p className=" text-center max-w-2xl mx-auto text-white lg:text-[16px] md:text-[14px] text-sm mt-2 font-sans font-semibold lg:px-0 px-4 aos-box " data-aos="fade-up">
               NextZen Software Solutions support has a strong portfolio of most
               successful websites, eCommerce sites and Food Delivery App across
               a spectrum of niches. Our portfolio offers you a detailed idea of
@@ -86,16 +119,16 @@ const Page = () => {
               abilities.
             </p>
           </div>
-          <div className="  mt-20 flex flex-col justify-center items-center">
-            <h2 className=" lg:text-3xl md:text-2xl text-2xl lg:text-center text-center lg:px-0 px-4 font-sans font-bold ">
+          <div className="flex flex-col items-center justify-center mt-20 ">
+            <h2 className="px-4 font-sans text-2xl font-bold text-center lg:text-3xl md:text-2xl lg:text-center lg:px-0 aos-box " data-aos="fade-up">
               Welcome To NextZen{" "}
-              <span className=" text-purple-600">Portfolio</span>
+              <span className="text-purple-600 ">Portfolio</span>
             </h2>
 
-            <div className="space-y-5 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 mb-10">
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-4 sm:gap-10 mb-8">
-                <h2 className=" text-3xl font-sans font-bold ">
-                  Our <span className=" text-purple-600">Portfolio</span>
+            <div className="max-w-6xl px-4 mx-auto mt-20 mb-10 space-y-5 sm:px-6 lg:px-8">
+              <div className="flex flex-col items-center justify-between gap-4 mb-8 sm:flex-row sm:gap-10">
+                <h2 className="font-sans text-3xl font-bold ">
+                  Our <span className="text-purple-600 ">Portfolio</span>
                 </h2>
 
                 <div className="flex flex-wrap justify-center gap-2 sm:gap-4 ">
@@ -107,6 +140,7 @@ const Page = () => {
                   >
                     All
                   </button>
+
                   <button
                     className={`btn-4 py-2 px-3 sm:px-4 font-medium text-sm sm:text-base ${
                       typeFilter === "Web" && "bg-DarkBrown text-white"
@@ -127,26 +161,35 @@ const Page = () => {
               </div>
 
               <div>
-                <div className="grid gap-4 sm:gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 ">
+                <div className="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-2">
                   {filterData.map((project) => (
-                    <div className="box cursor-pointer " key={project.id}>
-                      <div className="lg:w-[450px] w-[250px] flex flex-col    bg-white overflow-hidden transition-all duration-300 hover:shadow-lg ">
+                    <div className="cursor-pointer box aos-box " data-aos="fade-up" key={project.id}>
+                      <div className="lg:w-[450px] w-[350px] flex flex-col bg-white overflow-hidden transition-all duration-300 hover:shadow-lg ">
                         <div className="relative w-full h-[280px] sm:h-[310px] transition-all duration-500 bg-black z-10 ">
                           <Image
                             src={project.img}
                             layout="fill"
-                            objectFit="cover"
+                            objectFit=""
                             alt={project.title}
                             className=" opacity-70"
                           />
-                          <div className=" opacity-70   absolute bottom-0 right-0  bg-black font-bold flex px-2 sm:px-4 justify-between mb-2">
-                            <p className="  font-normal font-montserrat text-[12px] sm:text-[12px] text-white ">
+                          <div className="absolute right-0 z-50 flex justify-between px-2 py-1 font-bold bg-black top-5 opacity-70 sm:px-4">
+                            <Link
+                              href={project.btnn}
+                              target="_blank"
+                              className="font-normal font-montserrat text-[12px] sm:text-[12px] text-white"
+                            >
+                              VISIT
+                            </Link>
+                          </div>
+                          <div className="absolute right-0 flex justify-between px-2 py-1 font-bold bg-black bottom-5 opacity-70 sm:px-4">
+                            <p className="font-normal font-montserrat text-[12px] sm:text-[12px] text-white ">
                               {project.category}
                             </p>
                           </div>
 
-                          <div className="p-2 sm:p-4 absolute inset-0 z-20  flex justify-center items-center">
-                            <div className="font-semibold mb-2 text-base sm:text-lg uppercase font-montserrat text-white text-center">
+                          <div className="absolute inset-0 z-20 flex items-center justify-center p-2 sm:p-4">
+                            <div className="mb-2 text-base font-semibold text-center text-white uppercase sm:text-lg font-montserrat">
                               {project.title}
                             </div>
                           </div>
@@ -160,7 +203,7 @@ const Page = () => {
           </div>
         </div>
         <div>
-          <LetsWorks/>
+          <LetsWorks />
         </div>
       </Layout>
     </>

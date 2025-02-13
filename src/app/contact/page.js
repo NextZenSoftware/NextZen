@@ -1,11 +1,13 @@
 "use client";
 import Layout from "@/components/Layouts/Layout";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import LetsWorks from "@/components/LetsWorks";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const metadata = {
   title: "Contact | NextZen Software Solutions",
@@ -13,6 +15,12 @@ const metadata = {
 };
 
 const Page = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      offset: 200, // Offset (distance from top to trigger animation)
+    });
+  }, []);
   const form = useRef();
   const router = useRouter();
 
@@ -37,43 +45,52 @@ const Page = () => {
 
   return (
     <Layout>
-      <div>
-        <div className="h-80 w-full bg-purple-600 flex flex-col justify-center items-center mb-24 relative">
-          <h1 className="text-center text-white lg:text-5xl md:text-3xl text-2xl font-mono font-extrabold mt-28 mb-2">
+      <div className="container">
+        <div className="relative flex flex-col items-center justify-center w-full mb-24 bg-purple-600 h-[400px]">
+          <h1
+            className="mb-2 font-mono text-2xl font-extrabold text-center text-white lg:text-5xl md:text-3xl mt-28 aos-box "
+            data-aos="fade-up"
+          >
             Contact Us.
           </h1>
-          <h3 className="text-center lg:text-xl md:text-xl text-sm font-serif text-white mb-10 lg:px-0 px-3">
+          <h3
+            className="px-3 mb-10 font-serif text-sm text-center text-white lg:text-xl md:text-xl lg:px-0 aos-box "
+            data-aos="fade-up"
+          >
             Get in touch or shoot us an email directly on{" "}
-            <span className="font-semibold text-gray-950 cursor-pointer">
-              NextZenSoftware1234@gmail.com
+            <span className="font-semibold cursor-pointer text-gray-950">
+              info@nextzen.com
             </span>
           </h3>
-          <div className="lg:flex  mx-auto max-w-[90%] -translate-y-10 absolute inset-0 mt-5 space-x-2 hidden ">
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-            <div className="h-32 w-32 rounded-full bg-red-500"></div>
-          </div>
+          {/* <div className="lg:flex  mx-auto max-w-[90%] -translate-y-10 absolute inset-0 mt-5 space-x-2 hidden ">
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+            <div className="w-32 h-32 bg-red-500 rounded-full"></div>
+          </div> */}
         </div>
       </div>
-      <div className="flex max-w-6xl mx-auto mb-10 bg-slate-50 lg:px-0 px-3">
-        <div className="w-full py-12 lg:px-0 rounded shadow-md border  border-slate-400 flex justify-center">
+      <div
+        className="flex max-w-6xl px-3 mx-auto mb-10 bg-slate-50 lg:px-0 aos-box "
+        data-aos="fade-up"
+      >
+        <div className="flex justify-center w-full py-12 border rounded shadow-md lg:px-0 border-slate-400">
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="space-y-4 max-w-5xl mx-auto w-full px-4 md:px-8"
+            className="w-full max-w-5xl px-4 mx-auto space-y-4 md:px-8"
           >
-            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-7">
+            <div className="flex flex-col space-y-4 md:flex-row md:space-y-0 md:space-x-7">
               <div className="flex flex-col w-full">
                 <div className="">
                   <label
                     htmlFor="full-name"
-                    className="block mb-1 text-lg font-mono font-semibold text-pure-greys-500"
+                    className="block mb-1 font-mono text-lg font-semibold text-pure-greys-500"
                   >
                     Name
                   </label>
@@ -89,7 +106,7 @@ const Page = () => {
                 <div className="mt-2">
                   <label
                     htmlFor="email"
-                    className="block mb-1 text-lg font-mono font-semibold text-pure-greys-500"
+                    className="block mb-1 font-mono text-lg font-semibold text-pure-greys-500"
                   >
                     Email
                   </label>
@@ -107,7 +124,7 @@ const Page = () => {
             <div className="mt-4">
               <label
                 htmlFor="message"
-                className="block mb-2 text-lg font-mono font-semibold text-pure-greys-500"
+                className="block mb-2 font-mono text-lg font-semibold text-pure-greys-500"
               >
                 Write Message
               </label>
@@ -120,7 +137,7 @@ const Page = () => {
                 required
               ></textarea>
             </div>
-            <div className="flex flex-col md:flex-row gap-5 mt-4">
+            <div className="flex flex-col gap-5 mt-4 md:flex-row">
               <a href="mailto:sakib@arlogiq.com" className="flex-1">
                 <button
                   type="submit"
