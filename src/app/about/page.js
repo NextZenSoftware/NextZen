@@ -43,20 +43,20 @@ const ImageSection = ({ src, alt }) => (
   </div>
 );
 
-const TeamCard = ({ src, name, position }) => (
-  <div className="overflow-hidden bg-white rounded-md shadow-xl h-96">
-    <Image
-      src={src}
-      width={300}
-      height={300}
-      objectFit="contain"
-      alt={name}
-      className="w-full h-64"
-    />
-    <h4 className="text-center pt-2 font-bold text-[20px] mt-5">{name}</h4>
-    <p className="text-center pt-1 text-gray-600 text-[16px]">{position}</p>
-  </div>
-);
+// const TeamCard = ({ src, name, position }) => (
+//   <div className="overflow-hidden bg-white rounded-md shadow-xl h-96">
+//     <Image
+//       src={src}
+//       width={300}
+//       height={300}
+//       objectFit="contain"
+//       alt={name}
+//       className="w-full h-64"
+//     />
+//     <h4 className="text-center pt-2 font-bold text-[20px] mt-5">{name}</h4>
+//     <p className="text-center pt-1 text-gray-600 text-[16px]">{position}</p>
+//   </div>
+// );
 
 const Page = () => {
   useEffect(() => {
@@ -153,7 +153,7 @@ const Page = () => {
               Our team is dedicated to innovation and excellence, providing the
               best web solutions to our global clients.
             </p>
-            <div className="grid gap-4 mt-10 lg:grid-cols-3">
+            {/* <div className="grid gap-4 mt-10 lg:grid-cols-3">
               <TeamCard
                 src="/images/majid.jpg"
                 name="SHEIKH MAJID"
@@ -169,7 +169,7 @@ const Page = () => {
                 name="SYED F. YUSUF"
                 position="Software Developer"
               />
-            </div>
+            </div> */}
           </div>
         </div>
         <div>

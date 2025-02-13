@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="fixed top-0 left-0 right-0 z-20 w-full bg-white border-b-2 border-gray-300 shadow-md">
+      <div className="fixed top-0 left-0 right-0 z-20 w-full bg-white border-b border-gray-300 shadow-sm">
         <div className="flex items-center justify-between px-2 py-4 mx-auto w-[90%] md:px-8 lg:px-10">
           <div className="text-2xl font-medium text-purple-700 md:text-3xl">
             <Link href={"/"}>
