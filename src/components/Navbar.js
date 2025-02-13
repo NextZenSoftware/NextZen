@@ -4,6 +4,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
+import { HiOutlineMenu, HiOutlineX } from "react-icons/hi";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,9 +19,9 @@ const Navbar = () => {
 
   return (
     <header>
-      <div className="bg-white fixed top-0 left-0 right-0 z-20 container border-b-2 border-gray-200 shadow-md">
-        <div className="flex justify-between items-center max-w-6xl mx-auto py-4 px-6 md:px-8 lg:px-10">
-          <div className="text-2xl md:text-3xl font-medium text-purple-700">
+      <div className="fixed top-0 left-0 right-0 z-20 w-full bg-white border-b-2 border-gray-300 shadow-md">
+        <div className="flex items-center justify-between px-2 py-4 mx-auto w-[90%] md:px-8 lg:px-10">
+          <div className="text-2xl font-medium text-purple-700 md:text-3xl">
             <Link href={"/"}>
               <Image
                 src={"/images/logo2.png"}
@@ -32,27 +33,27 @@ const Navbar = () => {
               />
             </Link>
           </div>
-          <div className="hidden md:flex space-x-4 items-center">
+          <div className="items-center hidden space-x-4 md:flex">
             <Link
               href="/"
-              className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
+              className="font-sans font-medium text-gray-500 transition-all duration-300 hover:border-b-2 hover:border-black"
             >
               HOME
             </Link>
             <Link
               href="/about"
-              className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
+              className="font-sans font-medium text-gray-500 transition-all duration-300 hover:border-b-2 hover:border-black"
             >
               ABOUT
             </Link>
             <div className="relative group">
               <Link
                 href="#"
-                className="text-gray-500 font-sans font-medium transition-all duration-300 flex"
+                className="flex font-sans font-medium text-gray-500 transition-all duration-300"
               >
-                SERVICES <FaChevronDown className=" mt-1 ml-1" />
+                SERVICES <FaChevronDown className="mt-1 ml-1 " />
               </Link>
-              <div className="absolute hidden group-hover:block bg-white  w-44 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+              <div className="absolute hidden bg-white rounded-md shadow-lg group-hover:block w-44 ring-1 ring-black ring-opacity-5">
                 <div
                   className="py-1"
                   role="menu"
@@ -61,12 +62,12 @@ const Navbar = () => {
                 >
                   <Link
                     href="/services/service1"
-                    className="flex px-4 py-3 gap-1 text-sm text-gray-700 hover:bg-gray-200"
+                    className="flex gap-1 px-4 py-3 text-sm text-gray-700 hover:bg-gray-200"
                   >
                     BUILDING WEBSITE{" "}
                     <div>
                       {" "}
-                      <div className=" items-end">
+                      <div className="items-end ">
                         {" "}
                         <FaAngleRight className="mt-1" size={15} />
                       </div>
@@ -94,7 +95,7 @@ const Navbar = () => {
                   </Link>
                   <Link
                     href="/services/service4"
-                    className="flex px-4 w-fit py-2 text-sm text-gray-700 hover:bg-gray-200"
+                    className="flex px-4 py-2 text-sm text-gray-700 w-fit hover:bg-gray-200"
                   >
                     SEARCH ENGINE OPTIMIZATION{" "}
                     <div>
@@ -107,67 +108,58 @@ const Navbar = () => {
             </div>
             <Link
               href="/portfolio"
-              className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
+              className="font-sans font-medium text-gray-500 transition-all duration-300 hover:border-b-2 hover:border-black"
             >
               PORTFOLIO
             </Link>
             <Link
               href="/contact"
-              className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
+              className="font-sans font-medium text-gray-500 transition-all duration-300 hover:border-b-2 hover:border-black"
             >
               CONTACT
             </Link>
           </div>
-          <div className="md:hidden">
+          <div className="z-50 md:hidden">
             {/* Mobile menu button */}
             <button
-              onClick={toggleMobileMenu}
-              className="text-gray-500 focus:outline-none"
-              aria-label="Open menu"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="text-gray-800"
+              aria-label="Toggle Menu"
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16m-7 6h7"
-                ></path>
-              </svg>
+              {isMobileMenuOpen ? (
+                <HiOutlineX size={30} />
+              ) : (
+                <HiOutlineMenu size={30} />
+              )}
             </button>
           </div>
         </div>
         {/* Mobile menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden">
-            <div className="flex flex-col items-center space-y-4 py-4">
+          <div className="md:hidden bg-gray-100 w-[70%] absolute right-0 h-[1000px] top-0 py-72 ">
+            <div className="flex flex-col items-center py-4 space-y-4">
               <Link
                 href="/"
-                className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
+                className="font-sans font-medium text-gray-800 transition-all duration-300 hover:border-b-2 hover:border-black"
               >
                 HOME
               </Link>
               <Link
                 href="/about"
-                className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
+                className="font-sans font-medium text-gray-800 transition-all duration-300 hover:border-b-2 hover:border-black"
               >
                 ABOUT
               </Link>
               <div className="relative group">
                 <button
-                  className="text-gray-500 font-sans flex font-medium transition-all duration-300"
+                  className="flex font-sans font-medium text-gray-800 transition-all duration-300"
                   onClick={toggleServicesDropdown}
                 >
                   SERVICES
-                  <FaChevronDown className=" mt-1 ml-1 text-gray-500 " />
+                  <FaChevronDown className="mt-1 ml-1 text-gray-800 " />
                 </button>
                 {isServicesOpen && (
-                  <div className="absolute bg-white w-48 rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
+                  <div className="absolute w-48 bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5">
                     <div
                       className="py-1"
                       role="menu"
@@ -176,7 +168,7 @@ const Navbar = () => {
                     >
                       <Link
                         href="/services/service1"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                        className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200"
                       >
                         BUILDING WEBSITE{" "}
                         <div>
@@ -186,7 +178,7 @@ const Navbar = () => {
                       </Link>
                       <Link
                         href="/services/service2"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                        className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200"
                       >
                         WEBSITE MAINTENANCE
                         <div>
@@ -196,7 +188,7 @@ const Navbar = () => {
                       </Link>
                       <Link
                         href="/services/service3"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                        className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200"
                       >
                         E-COMMERCE DEVELOPMENT
                         <div>
@@ -206,7 +198,7 @@ const Navbar = () => {
                       </Link>
                       <Link
                         href="/services/service4"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200"
+                        className="block px-4 py-2 text-sm text-gray-800 hover:bg-gray-200"
                       >
                         SEARCH ENGINE OPTIMIZATION
                         <div>
@@ -220,13 +212,13 @@ const Navbar = () => {
               </div>
               <Link
                 href="/portfolio"
-                className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
+                className="font-sans font-medium text-gray-800 transition-all duration-300 hover:border-b-2 hover:border-black"
               >
                 PORTFOLIO
               </Link>
               <Link
                 href="/contact"
-                className="text-gray-500 font-sans font-medium hover:border-b-2 hover:border-black transition-all duration-300"
+                className="font-sans font-medium text-gray-800 transition-all duration-300 hover:border-b-2 hover:border-black"
               >
                 CONTACT
               </Link>
