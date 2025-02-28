@@ -45,16 +45,16 @@ const Footer = () => {
           <div className="flex gap-3 mt-5 transition-all duration-200 cursor-pointer hover:text-blue-700 ">
             <FaLocationDot size={25} />
             <p className="text-sm text-center">
-              N-67, N Block, Abul Fazal Enclave,
+              N Block, Abul Fazal Enclave, Jamia
               <br />
-              Jamia Nagar, Okhla, New Delhi, India
+              Nagar, Okhla, New Delhi, India
             </p>
           </div>
           <div className="flex items-start justify-start gap-3 my-2 text-sm transition-all duration-200 cursor-pointer hover:text-blue-700 ">
             <MdEmail size={25} />
             <Link href={"/contact"}>
               {" "}
-              <span>info@nextzen.com</span>{" "}
+              <span>info@nextzensoftware.com</span>{" "}
             </Link>
           </div>
         </div>

@@ -45,7 +45,7 @@ const Page = () => {
 
   return (
     <Layout>
-      <div className="container">
+      <div className="container w-full">
         <div className="relative flex flex-col items-center justify-center w-full mb-24 bg-purple-600 h-[400px]">
           <h1
             className="mb-2 font-mono text-2xl font-extrabold text-center text-white lg:text-5xl md:text-3xl mt-28 aos-box "
@@ -59,7 +59,7 @@ const Page = () => {
           >
             Get in touch or shoot us an email directly on{" "}
             <span className="font-semibold cursor-pointer text-gray-950">
-              info@nextzen.com
+              info@nextzensoftware.com
             </span>
           </h3>
           {/* <div className="lg:flex  mx-auto max-w-[90%] -translate-y-10 absolute inset-0 mt-5 space-x-2 hidden ">
