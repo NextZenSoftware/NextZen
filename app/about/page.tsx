@@ -1,0 +1,128 @@
+"use client"
+
+import { Section } from "@/components/layout/Section"
+import { Users, Target, Lightbulb, TrendingUp } from "lucide-react"
+import Image from "next/image"
+import { motion } from "framer-motion"
+
+export default function AboutPage() {
+  return (
+    <>
+      {/* Hero Section */}
+      <Section className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+            >
+                <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+                    We Are Nextzen
+                </h1>
+                <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+                    A team of visionary developers, designers, and strategists committed to redefining the digital landscape. We build software that empowers businesses to scale and innovate.
+                </p>
+                <div className="flex gap-4">
+                    <div className="flex flex-col">
+                        <span className="text-3xl font-bold text-primary-600">10+</span>
+                        <span className="text-sm text-slate-500">Years Experience</span>
+                    </div>
+                    <div className="w-px bg-slate-300 dark:bg-slate-700 h-12" />
+                    <div className="flex flex-col">
+                        <span className="text-3xl font-bold text-primary-600">500+</span>
+                        <span className="text-sm text-slate-500">Projects Delivered</span>
+                    </div>
+                    <div className="w-px bg-slate-300 dark:bg-slate-700 h-12" />
+                    <div className="flex flex-col">
+                        <span className="text-3xl font-bold text-primary-600">50+</span>
+                        <span className="text-sm text-slate-500">Global Experts</span>
+                    </div>
+                </div>
+            </motion.div>
+            
+            <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="relative"
+            >
+                <div className="absolute inset-0 bg-primary-100 dark:bg-primary-900/30 rounded-3xl transform rotate-6 scale-95 opacity-50 blur-xl"></div>
+                <Image 
+                    src="/images/about-illustration.png" 
+                    alt="Nextzen Team Office" 
+                    width={800} 
+                    height={600} 
+                    className="relative rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 w-full h-auto object-cover"
+                />
+            </motion.div>
+        </div>
+      </Section>
+
+      {/* Values Section */}
+      <Section>
+        <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-4">Our Core Values</h2>
+            <p className="text-slate-600 dark:text-slate-400">The principles that guide every line of code we write and every partnership we build.</p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+                { icon: <Target className="w-8 h-8 text-blue-500" />, title: "Precision", desc: "We believe in pixel-perfect designs and bug-free code." },
+                { icon: <Lightbulb className="w-8 h-8 text-yellow-500" />, title: "Innovation", desc: "Staying ahead of the curve with the latest tech trends." },
+                { icon: <Users className="w-8 h-8 text-green-500" />, title: "Collaboration", desc: "Working closely with clients to realize their unique vision." },
+                { icon: <TrendingUp className="w-8 h-8 text-purple-500" />, title: "Growth", desc: "Building scalable solutions that grow with your business." },
+            ].map((value, idx) => (
+                <motion.div 
+                    key={idx}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: idx * 0.1 }}
+                    viewport={{ once: true }}
+                    className="bg-white dark:bg-slate-900 p-6 rounded-2xl shadow-lg border border-slate-100 dark:border-slate-800 hover:-translate-y-2 transition-transform"
+                >
+                    <div className="bg-slate-50 dark:bg-slate-800 w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                        {value.icon}
+                    </div>
+                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{value.title}</h3>
+                    <p className="text-slate-600 dark:text-slate-400">{value.desc}</p>
+                </motion.div>
+            ))}
+        </div>
+      </Section>
+      {/* Team/Leadership Section */}
+      <Section className="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+         <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-50 mb-4">Meet Our Leadership</h2>
+            <p className="text-slate-600 dark:text-slate-400">The minds behind our innovation and success.</p>
+         </div>
+
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+               { name: "David Chen", role: "CEO & Founder", bio: "15+ years in software engineering. Ex-Google tech lead." },
+               { name: "Sarah Johnson", role: "CTO", bio: "Cloud architecture expert. Passionate about scalable systems." },
+               { name: "Michael Rossi", role: "Head of Design", bio: "Award-winning UX designer with a focus on human-centered design." },
+            ].map((member, idx) => (
+               <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: idx * 0.2 }}
+                  viewport={{ once: true }}
+                  className="text-center group"
+               >
+                  <div className="w-32 h-32 mx-auto bg-slate-200 dark:bg-slate-800 rounded-full mb-6 overflow-hidden relative">
+                     {/* Placeholder for team headshots */}
+                     <div className="absolute inset-0 flex items-center justify-center text-slate-400 text-4xl font-bold bg-slate-100 dark:bg-slate-800 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
+                        {member.name.charAt(0)}
+                     </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50">{member.name}</h3>
+                  <p className="text-primary-600 font-medium mb-3">{member.role}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm max-w-xs mx-auto">{member.bio}</p>
+               </motion.div>
+            ))}
+         </div>
+      </Section>
+    </>
+  )
+}
