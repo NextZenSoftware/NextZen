@@ -91,15 +91,15 @@ export default function ServicesPage() {
                     viewport={{ once: true }}
                     whileHover={{ scale: 1.03 }}
                 >
-                    <Card className="h-full bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-primary-500 dark:hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-300">
+                    <Card className="h-full bg-slate-50 border-slate-200 hover:border-primary-500 hover:shadow-2xl hover:shadow-primary-500/10 transition-all duration-300">
                         <CardHeader>
-                            <div className="mb-4 p-3 bg-white dark:bg-slate-800 rounded-xl w-fit shadow-sm">
+                            <div className="mb-4 p-3 bg-white rounded-xl w-fit shadow-sm">
                                 {service.icon}
                             </div>
                             <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <CardDescription className="text-slate-600 dark:text-slate-400 text-base">
+                            <CardDescription className="text-slate-600 text-base">
                                 {service.description}
                             </CardDescription>
                         </CardContent>
@@ -108,15 +108,15 @@ export default function ServicesPage() {
             ))}
         </div>
       </Section>
-      <Section className="bg-slate-50 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+      <Section className="bg-slate-50 border-t border-slate-200">
         <div className="text-center max-w-3xl mx-auto mb-16">
-           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-6">Our Development Process</h2>
-           <p className="text-lg text-slate-600 dark:text-slate-400">A proven methodology that ensures transparency, quality, and timely delivery.</p>
+           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our Development Process</h2>
+           <p className="text-lg text-slate-600">A proven methodology that ensures transparency, quality, and timely delivery.</p>
         </div>
 
         <div className="relative">
            {/* Connecting Line (Desktop) */}
-           <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 dark:bg-slate-700 -translate-y-1/2 z-0" />
+           <div className="hidden md:block absolute top-1/2 left-0 w-full h-0.5 bg-slate-200 -translate-y-1/2 z-0" />
            
            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
               {[
@@ -131,13 +131,13 @@ export default function ServicesPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: idx * 0.2 }}
                     viewport={{ once: true }}
-                    className="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 text-center shadow-lg"
+                    className="bg-white p-6 rounded-2xl border border-slate-200 text-center shadow-lg"
                  >
                     <div className="w-12 h-12 mx-auto bg-primary-600 text-white rounded-full flex items-center justify-center font-bold text-lg mb-4 shadow-lg shadow-primary-500/30">
                        {item.step}
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">{item.title}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm">{item.desc}</p>
+                    <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                    <p className="text-slate-600 text-sm">{item.desc}</p>
                  </motion.div>
               ))}
            </div>

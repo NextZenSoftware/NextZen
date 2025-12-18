@@ -54,10 +54,10 @@ export default function CloudSolutionsPage() {
          </div>
       </Section>
 
-      <Section id="features" className="bg-slate-50 dark:bg-slate-950">
+      <Section id="features" className="bg-slate-50">
           <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-slate-50 mb-6">Explore Our Capabilities</h2>
-              <p className="text-lg text-slate-600 dark:text-slate-400">From simple migrations to complex multi-cloud architectures, we have the expertise to handle it all.</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Explore Our Capabilities</h2>
+              <p className="text-lg text-slate-600">From simple migrations to complex multi-cloud architectures, we have the expertise to handle it all.</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
@@ -99,13 +99,13 @@ export default function CloudSolutionsPage() {
                         {feature.icon}
                     </div>
                     <div>
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-3">{feature.title}</h3>
-                        <p className="text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
+                        <h3 className="text-xl font-bold text-slate-900 mb-3">{feature.title}</h3>
+                        <p className="text-slate-600 mb-4 leading-relaxed">
                             {feature.desc}
                         </p>
                         <ul className="space-y-2">
                             {["Scalable", "Secure", "Cost-Effective"].map((item, i) => (
-                                <li key={i} className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-500">
+                                <li key={i} className="flex items-center gap-2 text-sm text-slate-500">
                                     <Check size={14} className="text-cyan-500" /> {item}
                                 </li>
                             ))}

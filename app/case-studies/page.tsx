@@ -43,12 +43,12 @@ const projects = [
 export default function CaseStudiesPage() {
   return (
     <>
-      <Section className="bg-slate-50 dark:bg-slate-900">
+      <Section className="bg-slate-50">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Our Portfolio
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400">
+          <p className="text-xl text-slate-600">
             We take pride in delivering exceptional results. Explore how we've helped businesses transform and grow.
           </p>
         </div>
@@ -57,8 +57,8 @@ export default function CaseStudiesPage() {
       <Section>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="overflow-hidden border-slate-200 dark:border-slate-800 hover:shadow-xl transition-shadow duration-300 group">
-              <div className="aspect-video bg-slate-200 dark:bg-slate-800 relative">
+            <Card key={index} className="overflow-hidden border-slate-200 hover:shadow-xl transition-shadow duration-300 group">
+              <div className="aspect-video bg-slate-200 relative">
                 {/* Image Placeholder */}
                 <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-medium">
                   {project.title} Preview
@@ -73,15 +73,15 @@ export default function CaseStudiesPage() {
                 <div className="text-sm font-semibold text-primary-600 mb-2">
                   {project.category}
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-3">
+                <h3 className="text-2xl font-bold text-slate-900 mb-3">
                   {project.title}
                 </h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-6">
+                <p className="text-slate-600 mb-6">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, i) => (
-                    <span key={i} className="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-full text-xs font-medium">
+                    <span key={i} className="px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-medium">
                       {tag}
                     </span>
                   ))}

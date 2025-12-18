@@ -9,7 +9,7 @@ import { motion } from "framer-motion"
 export default function WebDevelopmentPage() {
   return (
     <>
-      <Section className="bg-slate-50 dark:bg-slate-900 pt-24 pb-16">
+      <Section className="bg-slate-50 pt-24 pb-16">
          <div className="max-w-4xl mx-auto text-center">
             <motion.div
                initial={{ opacity: 0, y: 20 }}
@@ -17,10 +17,10 @@ export default function WebDevelopmentPage() {
                transition={{ duration: 0.6 }}
             >
                <span className="text-primary-600 font-semibold tracking-wider uppercase text-sm mb-4 block">Service</span>
-               <h1 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+               <h1 className="text-4xl md:text-6xl font-bold text-slate-900 mb-6">
                   Custom Web Development
                </h1>
-               <p className="text-xl text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+               <p className="text-xl text-slate-600 mb-8 leading-relaxed">
                   We build high-performance, scalable, and secure websites that drive business growth. From simple landing pages to complex enterprise web applications.
                </p>
                <Button size="lg" asChild>
@@ -46,11 +46,11 @@ export default function WebDevelopmentPage() {
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ delay: idx * 0.1 }}
                    viewport={{ once: true }}
-                   className="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-shadow"
+                   className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow"
                 >
                    <div className="mb-4">{item.icon}</div>
-                   <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">{item.title}</h3>
-                   <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+                   <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                   <p className="text-slate-600">{item.desc}</p>
                 </motion.div>
             ))}
          </div>

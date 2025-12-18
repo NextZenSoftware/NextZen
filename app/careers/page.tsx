@@ -36,12 +36,12 @@ const jobs = [
 export default function CareersPage() {
   return (
     <>
-      <Section className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+      <Section className="bg-slate-50 border-b border-slate-200">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Join Our Team
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400 mb-8">
+          <p className="text-xl text-slate-600 mb-8">
             Build the future of technology with us. We offer competitive salaries, remote work, and a culture of innovation.
           </p>
           <Button size="lg" asChild>
@@ -52,15 +52,15 @@ export default function CareersPage() {
 
       <Section id="positions">
         <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-2xl font-bold mb-8 text-slate-900 dark:text-slate-50">Open Positions</h2>
+          <h2 className="text-2xl font-bold mb-8 text-slate-900">Open Positions</h2>
           {jobs.map((job, index) => (
-            <Card key={index} className="hover:border-primary-500 transition-colors border-slate-200 dark:border-slate-800">
+            <Card key={index} className="hover:border-primary-500 transition-colors border-slate-200">
               <CardContent className="p-6 md:p-8 flex flex-col md:flex-row gap-6 justify-between items-start md:items-center">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">
                     {job.title}
                   </h3>
-                  <div className="flex flex-wrap gap-4 text-sm text-slate-500 dark:text-slate-400 mb-4">
+                  <div className="flex flex-wrap gap-4 text-sm text-slate-500 mb-4">
                     <span className="flex items-center gap-1">
                       <Briefcase size={16} /> {job.department}
                     </span>
@@ -71,7 +71,7 @@ export default function CareersPage() {
                       <Clock size={16} /> {job.type}
                     </span>
                   </div>
-                  <p className="text-slate-600 dark:text-slate-400 max-w-2xl">
+                  <p className="text-slate-600 max-w-2xl">
                     {job.description}
                   </p>
                 </div>

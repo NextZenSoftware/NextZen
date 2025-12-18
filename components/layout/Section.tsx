@@ -18,9 +18,9 @@ export function Section({
   ...props
 }: SectionProps) {
   const bgStyles = {
-    white: "bg-white dark:bg-slate-950",
-    gray: "bg-slate-50 dark:bg-slate-900",
-    dark: "bg-slate-950 dark:bg-black",
+    white: "bg-white",
+    gray: "bg-slate-50",
+    dark: "bg-slate-950",
     none: "bg-transparent",
   }
 

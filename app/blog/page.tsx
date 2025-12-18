@@ -35,12 +35,12 @@ const posts = [
 export default function BlogPage() {
   return (
     <>
-      <Section className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+      <Section className="bg-slate-50 border-b border-slate-200">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Insights & News
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400">
+          <p className="text-xl text-slate-600">
             Expert perspectives on technology, business, and innovation.
           </p>
         </div>
@@ -51,8 +51,8 @@ export default function BlogPage() {
           {posts.map((post, index) => (
             <Link key={index} href={`/blog/post-${index + 1}`} className="group h-full"> 
             {/* Note: Dynamic routes not implemented yet, using placeholder links */}
-              <Card className="h-full hover:shadow-lg transition-all duration-300 border-slate-200 dark:border-slate-800 group-hover:border-primary-200 dark:group-hover:border-primary-800">
-                <div className="aspect-video bg-slate-100 dark:bg-slate-800 w-full mb-4 rounded-t-2xl" /> 
+              <Card className="h-full hover:shadow-lg transition-all duration-300 border-slate-200 group-hover:border-primary-200">
+                <div className="aspect-video bg-slate-100 w-full mb-4 rounded-t-2xl" /> 
                 {/* Image placeholder above */}
                 <CardHeader className="pb-2">
                   <div className="text-xs font-semibold text-primary-600 mb-2 uppercase tracking-wide">
@@ -63,10 +63,10 @@ export default function BlogPage() {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col justify-between">
-                  <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm line-clamp-3">
+                  <p className="text-slate-600 mb-6 text-sm line-clamp-3">
                     {post.excerpt}
                   </p>
-                  <div className="flex items-center gap-4 text-xs text-slate-500 dark:text-slate-500">
+                  <div className="flex items-center gap-4 text-xs text-slate-500">
                     <span className="flex items-center gap-1">
                       <Calendar size={14} /> {post.date}
                     </span>
