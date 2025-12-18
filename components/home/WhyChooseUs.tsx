@@ -38,24 +38,24 @@ export function WhyChooseUs() {
            viewport={{ once: true }}
            transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">
             Why Partner with Nextzen?
           </h2>
-          <p className="text-lg text-slate-600 dark:text-slate-400 mb-10 leading-relaxed">
+          <p className="text-lg text-slate-600 mb-10 leading-relaxed">
             We don't just write code; we build digital assets that drive business growth. Our commitment to excellence and innovation sets us apart from the competition.
           </p>
           
           <div className="space-y-8">
             {features.map((feature, index) => (
               <div key={index} className="flex gap-4">
-                <div className="mt-1 flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
+                <div className="mt-1 flex-shrink-0 w-12 h-12 rounded-full bg-primary-100 flex items-center justify-center">
                   {feature.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-slate-900 dark:text-slate-100 mb-2">
+                  <h3 className="text-xl font-semibold text-slate-900 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-slate-600 dark:text-slate-400">
+                  <p className="text-slate-600">
                     {feature.description}
                   </p>
                 </div>
@@ -72,7 +72,7 @@ export function WhyChooseUs() {
            className="relative"
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-primary-600 to-secondary-500 rounded-3xl transform rotate-3 scale-105 opacity-10 blur-2xl"></div>
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800">
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white border border-slate-100">
              <Image 
                 src="/images/team-illustration.png" 
                 alt="Nextzen Team Collaboration" 

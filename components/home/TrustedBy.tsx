@@ -10,7 +10,7 @@ export function TrustedBy() {
   ]
 
   return (
-    <Section className="py-12 border-b border-slate-100 dark:border-slate-800">
+    <Section className="py-12 border-b border-slate-100">
       <p className="text-center text-sm font-semibold text-slate-500 uppercase tracking-wider mb-8">
         Trusted by Innovative Companies
       </p>
@@ -22,7 +22,7 @@ export function TrustedBy() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
-            className="text-xl md:text-2xl font-bold text-slate-400 dark:text-slate-600 select-none"
+            className="text-xl md:text-2xl font-bold text-slate-400 select-none"
           >
             {company}
           </motion.div>

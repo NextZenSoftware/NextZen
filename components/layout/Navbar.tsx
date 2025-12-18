@@ -35,13 +35,13 @@ export function Navbar() {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-300",
         scrolled
-          ? "bg-white/80 dark:bg-slate-950/80 backdrop-blur-md shadow-sm border-b border-slate-200/50 dark:border-slate-800/50"
+          ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200/50"
           : "bg-transparent"
       )}
     >
       <div className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
-        <Link href="/" className="font-bold text-2xl flex items-center gap-2 text-primary-600 dark:text-primary-400">
+        <Link href="/" className="font-bold text-2xl flex items-center gap-2 text-primary-600">
           <span>Nextzen</span>
         </Link>
         {/* Desktop Nav */}
@@ -51,10 +51,10 @@ export function Navbar() {
               key={link.name}
               href={link.href}
               className={cn(
-                "text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400",
+                "text-sm font-medium transition-colors hover:text-primary-600",
                 pathname === link.href
-                  ? "text-primary-600 dark:text-primary-400"
-                  : "text-slate-600 dark:text-slate-300"
+                  ? "text-primary-600"
+                  : "text-slate-600"
               )}
             >
               {link.name}
@@ -67,7 +67,7 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden p-2 text-slate-600 dark:text-slate-300"
+          className="md:hidden p-2 text-slate-600"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X /> : <Menu />}
@@ -81,7 +81,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 overflow-hidden"
+            className="md:hidden bg-white border-b border-slate-200 overflow-hidden"
           >
             <div className="container-custom py-4 flex flex-col gap-4">
               {navLinks.map((link) => (
@@ -90,10 +90,10 @@ export function Navbar() {
                   href={link.href}
                   onClick={() => setIsOpen(false)}
                   className={cn(
-                    "text-sm font-medium py-2 transition-colors hover:text-primary-600 dark:hover:text-primary-400",
+                    "text-sm font-medium py-2 transition-colors hover:text-primary-600",
                     pathname === link.href
-                      ? "text-primary-600 dark:text-primary-400"
-                      : "text-slate-600 dark:text-slate-300"
+                      ? "text-primary-600"
+                      : "text-slate-600"
                   )}
                 >
                   {link.name}

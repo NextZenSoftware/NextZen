@@ -47,11 +47,11 @@ export default function AppDevelopmentPage() {
                    whileInView={{ opacity: 1, y: 0 }}
                    transition={{ delay: idx * 0.1 }}
                    viewport={{ once: true }}
-                   className="bg-white dark:bg-slate-950 p-6 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-lg transition-shadow"
+                   className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow"
                 >
                    <div className="mb-4">{item.icon}</div>
-                   <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 mb-2">{item.title}</h3>
-                   <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+                   <h3 className="text-xl font-bold text-slate-900 mb-2">{item.title}</h3>
+                   <p className="text-slate-600">{item.desc}</p>
                 </motion.div>
             ))}
          </div>

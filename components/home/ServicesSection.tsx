@@ -46,7 +46,7 @@ export function ServicesSection() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-4"
+          className="text-3xl md:text-5xl font-bold text-slate-900 mb-4"
         >
           Our Services
         </motion.h2>
@@ -55,7 +55,7 @@ export function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }} 
-          className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
+          className="text-lg text-slate-600 max-w-2xl mx-auto"
         >
           We offer a comprehensive suite of IT solutions designed to help your business thrive in the digital age.
         </motion.p>
@@ -71,9 +71,9 @@ export function ServicesSection() {
             viewport={{ once: true }}
             whileHover={{ y: -8 }}
           >
-            <Card className="h-full hover:shadow-xl transition-all duration-300 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 group">
+            <Card className="h-full hover:shadow-xl transition-all duration-300 border-slate-200 bg-white group">
               <CardHeader>
-                <div className="mb-4 bg-primary-50 dark:bg-primary-900/20 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
+                <div className="mb-4 bg-primary-50 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
                   <div className="group-hover:text-white text-primary-500 transition-colors duration-300">
                     {/* The icon itself doesn't need to change props if handled by parent color, but lucide icons use currentColor */}
                     {/* We need to clone element to change color or rely on text color class */}
@@ -83,7 +83,7 @@ export function ServicesSection() {
                 <CardTitle className="group-hover:text-primary-600 transition-colors">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+                <CardDescription className="text-base text-slate-600 leading-relaxed">
                   {service.description}
                 </CardDescription>
               </CardContent>

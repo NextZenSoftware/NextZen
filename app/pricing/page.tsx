@@ -62,12 +62,12 @@ const plans = [
 export default function PricingPage() {
   return (
     <>
-      <Section className="bg-slate-50 dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+      <Section className="bg-slate-50 border-b border-slate-200">
         <div className="max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Transparent Pricing
           </h1>
-          <p className="text-xl text-slate-600 dark:text-slate-400">
+          <p className="text-xl text-slate-600">
             Choose the plan that best fits your business needs. No hidden fees.
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function PricingPage() {
               className={`relative flex flex-col ${
                 plan.popular 
                   ? "border-primary-500 shadow-xl scale-105 z-10" 
-                  : "border-slate-200 dark:border-slate-800"
+                  : "border-slate-200"
               }`}
             >
               {plan.popular && (
@@ -90,21 +90,21 @@ export default function PricingPage() {
                 </div>
               )}
               <CardHeader className="text-center pb-2">
-                <CardTitle className="text-xl font-medium text-slate-600 dark:text-slate-400">
+                <CardTitle className="text-xl font-medium text-slate-600">
                   {plan.name}
                 </CardTitle>
                 <div className="mt-4 flex items-baseline justify-center gap-1">
-                  <span className="text-4xl font-bold text-slate-900 dark:text-slate-50">{plan.price}</span>
-                  <span className="text-slate-500 dark:text-slate-400">{plan.period}</span>
+                  <span className="text-4xl font-bold text-slate-900">{plan.price}</span>
+                  <span className="text-slate-500">{plan.period}</span>
                 </div>
               </CardHeader>
               <CardContent className="flex-1 mt-6">
-                <p className="text-center text-slate-600 dark:text-slate-400 mb-6 text-sm">
+                <p className="text-center text-slate-600 mb-6 text-sm">
                   {plan.description}
                 </p>
                 <ul className="space-y-3">
                   {plan.features.map((feature, i) => (
-                    <li key={i} className="flex items-start text-sm text-slate-700 dark:text-slate-300">
+                    <li key={i} className="flex items-start text-sm text-slate-700">
                       <Check className="w-5 h-5 text-green-500 mr-2 flex-shrink-0" />
                       {feature}
                     </li>
