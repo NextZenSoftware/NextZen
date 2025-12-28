@@ -8,32 +8,32 @@ import { motion } from "framer-motion"
 const services = [
   {
     title: "Web Development",
-    description: "Custom, high-performance websites built with the latest technologies like Next.js and React.",
+    description: "We design and develop high-performance, scalable websites and web applications using modern technologies such as Next.js, React, and advanced UI frameworks.",
     icon: <Monitor className="w-10 h-10 text-primary-500" />,
   },
   {
     title: "Cloud Services",
-    description: "Scalable cloud infrastructure management on AWS and Azure. Migration, optimization, and DevOps.",
+    description: "We deliver secure and scalable cloud infrastructure solutions on AWS and Azure, including migration, optimization, monitoring, and cloud-native DevOps practices.",
     icon: <Server className="w-10 h-10 text-primary-500" />,
   },
   {
     title: "Security Audits",
-    description: "Comprehensive security assessments to protect your digital assets and ensure compliance.",
+    description: "We perform in-depth security audits and risk assessments to identify vulnerabilities, strengthen defenses, and ensure compliance with industry standards.",
     icon: <Shield className="w-10 h-10 text-primary-500" />,
   },
   {
     title: "SEO Optimization",
-    description: "Data-driven SEO strategies to increase visibility and drive organic traffic to your business.",
+    description: "We implement data-driven SEO strategies that improve search rankings, enhance website performance, and drive high-quality organic traffic to your business.",
     icon: <Globe className="w-10 h-10 text-primary-500" />,
   },
   {
     title: "DevOps Solutions",
-    description: "Streamlined CI/CD pipelines and automated infrastructure for faster deployment cycles.",
+    description: "We build automated CI/CD pipelines and infrastructure solutions that accelerate deployments, improve reliability, and enable efficient, scalable development workflows.",
     icon: <Cpu className="w-10 h-10 text-primary-500" />,
   },
   {
     title: "Mobile Apps",
-    description: "Native and cross-platform mobile applications that provide seamless user experiences.",
+    description: "We create secure, scalable native and cross-platform mobile applications that deliver seamless performance and exceptional user experiences across devices.",
     icon: <Smartphone className="w-10 h-10 text-primary-500" />,
   },
 ]
@@ -55,9 +55,12 @@ export function ServicesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }} 
-          className="text-lg text-slate-600 max-w-2xl mx-auto"
+          className="text-lg text-slate-600 max-w-4xl mx-auto"
         >
-          We offer a comprehensive suite of IT solutions designed to help your business thrive in the digital age.
+          End-to-end digital solutions designed to scale your business, secure your infrastructure, and accelerate innovation.
+          At <strong>NextZen Software</strong>, we don’t just build software —
+we design future-ready systems that are fast, secure, and scalable.
+Our expert team delivers high-performance digital solutions tailored to your business goals, ensuring long-term growth and technical excellence.
         </motion.p>
       </div>
 
@@ -69,18 +72,18 @@ export function ServicesSection() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: index * 0.1 }}
             viewport={{ once: true }}
-            whileHover={{ y: -8 }}
+            // whileHover={{ y: -8 }}
           >
-            <Card className="h-full hover:shadow-xl transition-all duration-300 border-slate-200 bg-white group">
+            <Card className="h-full hover:shadow-md transition-all duration-300 border-slate-200 bg-white ">
               <CardHeader>
-                <div className="mb-4 bg-primary-50 w-16 h-16 rounded-2xl flex items-center justify-center group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
-                  <div className="group-hover:text-white text-primary-500 transition-colors duration-300">
+                <div className="mb-4 bg-primary-50 w-16 h-16 rounded-2xl flex items-center justify-center  transition-colors duration-300">
+                  <div className=" text-primary-500 transition-colors duration-200">
                     {/* The icon itself doesn't need to change props if handled by parent color, but lucide icons use currentColor */}
                     {/* We need to clone element to change color or rely on text color class */}
                     <div className="current-color">{service.icon}</div>
                   </div>
                 </div>
-                <CardTitle className="group-hover:text-primary-600 transition-colors">{service.title}</CardTitle>
+                <CardTitle className="hover:text-primary-500 transition-colors">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base text-slate-600 leading-relaxed">
