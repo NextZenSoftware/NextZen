@@ -22,9 +22,9 @@ export default function ContactPage() {
       </Section>
 
       <Section>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start text-gray-700">
           <div>
-            <h2 className="text-2xl font-bold mb-8">Contact Information</h2>
+            <h2 className="text-2xl font-bold mb-8 text-gray-600">Contact Information</h2>
             <div className="space-y-8">
               <div className="flex items-start gap-4">
                 <div className="p-3 bg-primary-50 rounded-lg text-primary-600">

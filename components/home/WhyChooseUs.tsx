@@ -8,22 +8,22 @@ import { motion } from "framer-motion"
 const features = [
   {
     title: "Expert Team",
-    description: "Our team consists of senior developers and architects with years of experience in delivering enterprise-grade solutions.",
+    description: "Our team is made up of experienced engineers, architects, and consultants who specialize in building enterprise-grade, scalable, and secure technology solutions.",
     icon: <Users className="w-6 h-6 text-primary-600" />,
   },
   {
     title: "Fast Delivery",
-    description: "We use agile methodologies and modern CI/CD pipelines to ensure rapid delivery without compromising quality.",
+    description: "We follow agile development practices and automated CI/CD pipelines to deliver projects faster, maintain quality, and adapt quickly to changing business requirements.",
     icon: <Zap className="w-6 h-6 text-primary-600" />,
   },
   {
     title: "Proven Track Record",
-    description: "We have successfully delivered over 100+ projects for clients ranging from startups to Fortune 500 companies.",
+    description: "We have successfully delivered hundreds of projects for startups, growing businesses, and enterprise clients across multiple industries and technologies.",
     icon: <Trophy className="w-6 h-6 text-primary-600" />,
   },
   {
     title: "24/7 Support",
-    description: "Our dedicated support team is always available to handle any issues and ensure your systems run smoothly.",
+    description: "Our dedicated support team provides continuous monitoring and reliable assistance to ensure your systems remain stable, secure, and fully operational around the clock.",
     icon: <CheckCircle2 className="w-6 h-6 text-primary-600" />,
   },
 ]
@@ -38,11 +38,13 @@ export function WhyChooseUs() {
            viewport={{ once: true }}
            transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-6">
-            Why Partner with Nextzen?
+          <h2 className="text-center text-3xl md:text-5xl font-bold text-slate-900 mb-6 max-w-4xl mx-auto lg:text-nowrap lg:pb-12">
+            Why Choose NextZen as Your Technology Partner  ?
           </h2>
           <p className="text-lg text-slate-600 mb-10 leading-relaxed">
-            We don't just write code; we build digital assets that drive business growth. Our commitment to excellence and innovation sets us apart from the competition.
+            We go beyond development to deliver secure, scalable, and high-impact digital solutions.
+By combining technical expertise with a business-first approach, we help organizations
+achieve long-term growth, efficiency, and innovation.
           </p>
           
           <div className="space-y-8">
@@ -72,7 +74,7 @@ export function WhyChooseUs() {
            className="relative"
         >
           <div className="absolute inset-0 bg-gradient-to-tr from-primary-600 to-secondary-500 rounded-3xl transform rotate-3 scale-105 opacity-10 blur-2xl"></div>
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white border border-slate-100">
+          <div className="relative rounded-3xl overflow-hidden shadow-xl bg-white border border-slate-100">
              <Image 
                 src="/images/team-illustration.png" 
                 alt="Nextzen Team Collaboration" 

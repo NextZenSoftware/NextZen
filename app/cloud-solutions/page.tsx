@@ -30,7 +30,7 @@ export default function CloudSolutionsPage() {
                     <Button size="lg" className="bg-cyan-500 hover:bg-cyan-600 text-white border-0" asChild>
                         <Link href="/contact">Get a Consultation</Link>
                     </Button>
-                    <Button size="lg" variant="outline" className="border-slate-700 text-white hover:bg-slate-800 hover:text-white" asChild>
+                    <Button size="lg" variant="outline" className="border-slate-700 text-gray-600 hover:bg-slate-800 hover:text-white" asChild>
                         <Link href="#features">Learn More</Link>
                     </Button>
                 </div>
