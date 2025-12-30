@@ -31,7 +31,7 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav  className="fixed top-0 w-full backdrop-blur-md shadow-md z-50 transition-all duration-300 bg-white border-b border-slate-200/50" >
+    <nav  className="fixed top-0 w-full backdrop-blur-md z-50 transition-all duration-300 bg-white border-2 border-slate-200/50" >
       <div className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="font-bold text-2xl flex items-center gap-2 text-primary-600">

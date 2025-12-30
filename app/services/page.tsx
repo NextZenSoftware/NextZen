@@ -9,32 +9,32 @@ import Image from "next/image"
 const services = [
   {
     title: "Web Development",
-    description: "Full-stack web applications built with React, Next.js, and Node.js. High performance and SEO optimized.",
+    description: "High-performance, SEO-optimized web applications built with React, Next.js, and Node.js. We deliver fast, secure, and scalable platforms designed to convert users and grow revenue.",
     icon: <Monitor className="w-8 h-8 text-cyan-500" />,
   },
   {
     title: "Mobile App Dev",
-    description: "Native iOS and Android applications using React Native and Flutter for seamless cross-platform experiences.",
+    description: "Robust iOS and Android applications developed using React Native and Flutter, ensuring seamless performance, intuitive UX, and faster time-to-market across platforms.",
     icon: <Smartphone className="w-8 h-8 text-purple-500" />,
   },
   {
     title: "Cloud Infrastructure",
-    description: "AWS & Azure architecture design, serverless computing, and scalable infrastructure management.",
+    description: "Secure, scalable cloud architectures on AWS and Azure, which includes serverless solutions, cloud migration, cost optimization, monitoring, and high-availability system design.",
     icon: <CloudLightning className="w-8 h-8 text-blue-500" />,
   },
   {
     title: "DevOps & CI/CD",
-    description: "Automated deployment pipelines, containerization (Docker/Kubernetes), and infrastructure as code.",
+    description: "Automated CI/CD pipelines, Docker & Kubernetes orchestration, and Infrastructure as Code to accelerate releases, improve reliability, and reduce deployment risks.",
     icon: <Cpu className="w-8 h-8 text-orange-500" />,
   },
   {
     title: "Cybersecurity",
-    description: "Penetration testing, security audits, and compliance implementations (GDPR, HIPAA, SOC2).",
+    description: "Comprehensive security solutions which includes penetration testing, vulnerability assessments, and compliance implementation (GDPR, HIPAA, SOC 2) to protect critical assets.",
     icon: <Shield className="w-8 h-8 text-red-500" />,
   },
   {
     title: "Database Design",
-    description: "SQL & NoSQL database architecture, optimization, and migration services for data-intensive apps.",
+    description: "High-availability SQL & NoSQL database architecture, performance tuning, and seamless migration strategies for data-driven and enterprise applications.",
     icon: <Database className="w-8 h-8 text-green-500" />,
   },
 ]
@@ -42,9 +42,9 @@ const services = [
 export default function ServicesPage() {
   return (
     <>
-      <Section className="bg-slate-950 text-white overflow-hidden relative">
+      <Section className="bg-slate-50 text-slate-900 overflow-hidden relative">
          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary-500/20 rounded-full blur-[100px] pointer-events-none"></div>
+         <div className="absolute top-0 right-0  rounded-full pointer-events-none"></div>
          
          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <motion.div
@@ -52,14 +52,15 @@ export default function ServicesPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
             >
-                <div className="inline-block px-4 py-1 rounded-full bg-primary-900/50 border border-primary-700 text-primary-300 text-sm font-medium mb-6">
-                    End-to-End Solutions
+                <div className="inline-block px-4 py-1 rounded-full bg-gradient-to-r from-primary-500 to-secondary-600 border border-primary-400 text-white text-sm font-medium mb-6">
+                    End-to-End Digital Engineering Services
                 </div>
-                <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-                    Technology that <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-secondary-400">Moves You Forward</span>
+                <h1 className="text-3xl md:text-6xl font-bold mb-6 leading-tight">
+                    Technology That Powers Innovation , <br/> <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-500 to-secondary-600">Scalable & Secure.</span>
                 </h1>
-                <p className="text-xl text-slate-400 mb-8 max-w-lg">
-                    We leverage the latest tech stack to build robust, scalable, and secure digital products tailored to your business needs.
+                <p className="text-xl text-slate-700 mb-8 max-w-xl leading-relaxed">
+                    We design, develop, and scale high-performance digital solutions for modern businesses.
+From cloud-native infrastructure and DevOps automation to enterprise-grade web and mobile applications, NextZen helps organizations innovate faster, reduce operational risk, and achieve sustainable growth.
                 </p>
             </motion.div>
 
@@ -74,7 +75,7 @@ export default function ServicesPage() {
                     alt="Nextzen Tech Stack" 
                     width={800} 
                     height={600} 
-                    className="w-full h-auto drop-shadow-2xl animate-float"
+                    className="w-full h-auto drop-shadow-2xl rounded-2xl"
                 />
             </motion.div>
          </div>
@@ -110,8 +111,8 @@ export default function ServicesPage() {
       </Section>
       <Section className="bg-slate-50 border-t border-slate-200">
         <div className="text-center max-w-3xl mx-auto mb-16">
-           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our Development Process</h2>
-           <p className="text-lg text-slate-600">A proven methodology that ensures transparency, quality, and timely delivery.</p>
+           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">Our Proven Development Process</h2>
+           <p className="text-lg text-slate-600">A transparent, agile, and results-driven approach that ensures quality, efficiency, and on-time delivery—every time.</p>
         </div>
 
         <div className="relative">
@@ -120,10 +121,10 @@ export default function ServicesPage() {
            
            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
               {[
-                 { step: "01", title: "Discovery", desc: "We dive deep into your requirements and business goals." },
-                 { step: "02", title: "Design", desc: "Creating intuitive UI/UX prototypes for your approval." },
-                 { step: "03", title: "Development", desc: "Agile coding sprints with regular updates and feedback." },
-                 { step: "04", title: "Launch", desc: "Thorough testing, deployment, and post-launch support." },
+                 { step: "01", title: "Discovery", desc: "We analyze your business goals, technical requirements, and market challenges to define a clear roadmap for success." },
+                 { step: "02", title: "Design", desc: "Our UX/UI experts craft intuitive, user-centric designs that enhance engagement and align with your brand identity." },
+                 { step: "03", title: "Development", desc: "Agile development cycles with clean, scalable code, continuous testing, and regular progress updates for complete transparency." },
+                 { step: "04", title: "Launch", desc: "Rigorous QA testing, smooth deployment, and ongoing monitoring to ensure long-term stability, performance, and scalability." },
               ].map((item, idx) => (
                  <motion.div 
                     key={idx}

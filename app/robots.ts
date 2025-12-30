@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/private/',
     },
-    sitemap: 'https://nextzen.com/sitemap.xml',
+    sitemap: 'https://www.nextzensoftware.com/sitemap.xml',
   }
 }

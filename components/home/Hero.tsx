@@ -8,8 +8,7 @@ import Image from "next/image"
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white  min-h-[calc(100vh-80px)]
-    lg:flex lg:items-center">
+    <section className="relative overflow-hidden bg-white pt-20 pb-16 md:pt-32 md:pb-24 lg:min-h-[calc(100vh-80px)] lg:flex lg:items-center">
       {/* pt-20 pb-16 md:pt-32 md:pb-24 lg:min-h-screen  */}
       {/* Background Gradient Blob */}
       <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[600px] h-[600px] bg-secondary-200/40 blur-[100px] rounded-full pointer-events-none" />
@@ -84,7 +83,7 @@ NextZen delivers reliable, future-ready technology.
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="relative lg:h-[600px] flex items-center justify-center p-14"
+          className="relative lg:h-[600px] flex items-center justify-center p-8"
         >
            <div className="relative w-full aspect-square max-w-[600px]">
               {/* Main Illustration */}
