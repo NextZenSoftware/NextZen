@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://nextzen.com'
+  const baseUrl = 'https://www.nextzensoftware.com'
 
   // Static pages
   const routes = [
