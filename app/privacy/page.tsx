@@ -1,8 +1,17 @@
 import { Section } from "@/components/layout/Section"
+import { Metadata } from "next"
 
-export const metadata = {
-  title: "Privacy Policy - NextzenSoftware",
-  description: "NextzenSoftware Privacy Policy.",
+export const metadata: Metadata = {
+  title: "Privacy Policy - NextzenSoftware | nextzensoftware",
+  description: "NextzenSoftware (nextzensoftware) Privacy Policy - Learn how we collect, use, and protect your personal data. Our commitment to data privacy and security for all users of NextzenSoftware services.",
+  keywords: ["nextzensoftware", "NextzenSoftware", "privacy policy", "data privacy", "data protection", "GDPR compliance", "nextzen privacy"],
+  alternates: {
+    canonical: 'https://www.nextzensoftware.com/privacy',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function PrivacyPage() {

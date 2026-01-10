@@ -1,8 +1,17 @@
 import { Section } from "@/components/layout/Section"
+import { Metadata } from "next"
 
-export const metadata = {
-  title: "Terms & Conditions - NextzenSoftware",
-  description: "NextzenSoftware Terms of Service.",
+export const metadata: Metadata = {
+  title: "Terms & Conditions - NextzenSoftware | nextzensoftware",
+  description: "Read NextzenSoftware (nextzensoftware) Terms of Service and Conditions. Legal terms governing the use of NextzenSoftware website and services. Updated terms and conditions for web development, cloud solutions, and IT services.",
+  keywords: ["nextzensoftware", "NextzenSoftware", "terms of service", "terms and conditions", "legal terms", "nextzen terms"],
+  alternates: {
+    canonical: 'https://www.nextzensoftware.com/terms',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 }
 
 export default function TermsPage() {
