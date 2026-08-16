@@ -3,10 +3,21 @@ import { Card, CardContent } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
 import { ArrowRight, ExternalLink } from "lucide-react"
 import Link from "next/link"
+import { Metadata } from "next"
 
-export const metadata = {
-  title: "Case Studies - NextzenSoftware",
-  description: "Explore our portfolio of successful projects and digital transformations.",
+export const metadata: Metadata = {
+  title: "Case Studies - NextzenSoftware | nextzensoftware - Portfolio & Projects",
+  description: "Explore NextzenSoftware (nextzensoftware) portfolio of successful projects and digital transformations. See how we've helped businesses with web development, cloud migration, mobile apps, and e-commerce solutions. Real results from real clients.",
+  keywords: ["nextzensoftware", "NextzenSoftware", "case studies", "portfolio", "projects", "web development projects", "cloud migration examples", "mobile app development", "e-commerce solutions", "digital transformation projects", "nextzen portfolio"],
+  alternates: {
+    canonical: 'https://www.nextzensoftware.com/case-studies',
+  },
+  openGraph: {
+    title: "Case Studies - NextzenSoftware | nextzensoftware",
+    description: "Explore NextzenSoftware (nextzensoftware) portfolio of successful projects and digital transformations. Real results from real clients.",
+    url: "https://www.nextzensoftware.com/case-studies",
+    siteName: "NextzenSoftware",
+  },
 }
 
 const projects = [

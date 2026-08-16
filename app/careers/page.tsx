@@ -3,10 +3,21 @@ import { Button } from "@/components/ui/Button"
 import { Briefcase, MapPin, Clock } from "lucide-react"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/Card"
+import { Metadata } from "next"
 
-export const metadata = {
-  title: "Careers - NextzenSoftware",
-  description: "Join the Nextzen team. We are hiring talented engineers, designers, and problem solvers.",
+export const metadata: Metadata = {
+  title: "Careers - NextzenSoftware | nextzensoftware - Join Our Team",
+  description: "Join NextzenSoftware (nextzensoftware) team! We're hiring talented engineers, designers, DevOps specialists, and problem solvers. Work on cutting-edge web development, cloud solutions, and digital transformation projects. Remote and hybrid positions available.",
+  keywords: ["nextzensoftware", "NextzenSoftware", "careers", "jobs", "hiring", "software engineer jobs", "web developer jobs", "cloud engineer jobs", "UI/UX designer jobs", "DevOps jobs", "nextzen careers", "IT jobs"],
+  alternates: {
+    canonical: 'https://www.nextzensoftware.com/careers',
+  },
+  openGraph: {
+    title: "Careers - NextzenSoftware | nextzensoftware",
+    description: "Join NextzenSoftware (nextzensoftware) team! We're hiring talented engineers, designers, and problem solvers. Remote and hybrid positions available.",
+    url: "https://www.nextzensoftware.com/careers",
+    siteName: "NextzenSoftware",
+  },
 }
 
 const jobs = [
