@@ -4,7 +4,7 @@ import * as React from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { motion, AnimatePresence } from "framer-motion"
-import { Menu, X, ChevronDown } from "lucide-react"
+import { Menu, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/Button"
 
@@ -31,7 +31,12 @@ export function Navbar() {
   }, [])
 
   return (
-    <nav  className="fixed top-0 w-full backdrop-blur-md z-50 transition-all duration-300 bg-white border-2 border-slate-200/50" >
+    <nav className={cn(
+      "fixed top-0 z-50 w-full border-b transition-all duration-300",
+      scrolled
+        ? "border-slate-200/50 bg-white/80 shadow-sm backdrop-blur-md"
+        : "border-slate-200/50 bg-white"
+    )}>
       <div className="container-custom flex items-center justify-between h-20">
         {/* Logo */}
         <Link href="/" className="font-bold text-2xl flex items-center gap-2 text-primary-600">
@@ -60,6 +65,10 @@ export function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
+          type="button"
+          aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
           className="md:hidden p-2 text-slate-600"
           onClick={() => setIsOpen(!isOpen)}
         >
@@ -74,6 +83,7 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            id="mobile-navigation"
             className="md:hidden bg-white border-b border-slate-200 overflow-hidden"
           >
             <div className="container-custom py-4 flex flex-col gap-4">
@@ -102,10 +112,3 @@ export function Navbar() {
     </nav>
   )
 }
-
-// className={cn(
-//         ,
-//         scrolled
-//           ? "bg-white/80 backdrop-blur-md shadow-sm border-b border-slate-200/50"
-//           : ""
-//       )}

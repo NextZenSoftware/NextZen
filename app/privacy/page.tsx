@@ -50,7 +50,15 @@ export default function PrivacyPage() {
         We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used or accessed in an unauthorized way, altered or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors and other third parties who have a business need to know.
       </p>
 
-      <h2>5. Contact Us</h2>
+      <h2>5. Maria Assistant and Voice</h2>
+      <p>
+        Our website includes Maria, an automated assistant. Chat messages may be sent to Google Gemini to generate a response. Do not submit passwords, payment details, confidential source code, or other sensitive information. Chat transcripts are not intentionally stored by this website by default.
+      </p>
+      <p>
+        Voice controls use your browser&apos;s speech recognition and speech synthesis features when available. Voice input is activated only when you choose the microphone control. Browser providers may process voice data according to their own privacy policies.
+      </p>
+
+      <h2>6. Contact Us</h2>
       <p>
         If you have any questions about this privacy policy or our privacy practices, please contact us at privacy@nextzen.com.
       </p>

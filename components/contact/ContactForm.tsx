@@ -10,7 +10,6 @@ export function ContactForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setStatus("submitting")
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000))
     setStatus("success")
   }
@@ -18,9 +17,9 @@ export function ContactForm() {
   return (
     <Card className="p-8">
       {status === "success" ? (
-        <div className="text-center py-12">
+        <div className="py-12 text-center" role="status" aria-live="polite">
           <h3 className="text-2xl font-bold text-green-600 mb-2">Message Sent!</h3>
-          <p className="text-slate-600">We'll get back to you shortly.</p>
+          <p className="text-slate-600">We&apos;ll get back to you shortly.</p>
           <Button onClick={() => setStatus("idle")} variant="outline" className="mt-6">
             Send another message
           </Button>
@@ -30,20 +29,20 @@ export function ContactForm() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
               <label htmlFor="name" className="text-sm font-medium">Name</label>
-              <Input id="name" required placeholder="John Doe" />
+              <Input id="name" name="name" autoComplete="name" required placeholder="John Doe" />
             </div>
             <div className="space-y-2">
               <label htmlFor="email" className="text-sm font-medium">Email</label>
-              <Input id="email" type="email" required placeholder="john@nextzen.com" />
+              <Input id="email" name="email" type="email" autoComplete="email" required placeholder="john@nextzen.com" />
             </div>
           </div>
           <div className="space-y-2">
             <label htmlFor="subject" className="text-sm font-medium">Subject</label>
-            <Input id="subject" required placeholder="Project Inquiry" />
+            <Input id="subject" name="subject" required placeholder="Project Inquiry" />
           </div>
           <div className="space-y-2">
              <label htmlFor="message" className="text-sm font-medium">Message</label>
-             <Textarea id="message" required placeholder="Tell us about your project..." className="min-h-[150px]" />
+             <Textarea id="message" name="message" required placeholder="Tell us about your project..." className="min-h-[150px]" />
           </div>
           <Button type="submit" className="w-full" disabled={status === "submitting"}>
             {status === "submitting" ? "Sending..." : "Send Message"}

@@ -2,7 +2,7 @@
 
 import { Section } from "@/components/layout/Section"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/Card"
-import { Monitor, Server, Shield, Globe, Cpu, Smartphone, Code2, Database, CloudLightning } from "lucide-react"
+import { Monitor, Shield, Cpu, Smartphone, Database, CloudLightning } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 
