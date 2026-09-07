@@ -30,7 +30,7 @@ Then set `GEMINI_API_KEY` in `.env.local` and restart the development server:
 npm run dev
 ```
 
-Never commit `.env.local` or share the API key. The key is used only by the server-side chat route.
+Use `gemini-3.5-flash-lite` for the free-tier model. Never commit `.env.local` or share the API key. The key is used only by the server-side chat route.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

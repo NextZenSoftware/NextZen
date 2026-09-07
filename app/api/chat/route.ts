@@ -91,7 +91,7 @@ export async function POST(request: Request) {
       parts: [{ text: message.content.trim() }],
     }))
     const response = await ai.models.generateContent({
-      model: process.env.GEMINI_MODEL ?? "gemini-2.5-flash-lite",
+      model: process.env.GEMINI_MODEL ?? "gemini-3.5-flash-lite",
       contents,
       config: {
         systemInstruction: mariaSystemPrompt,
