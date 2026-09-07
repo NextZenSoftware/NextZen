@@ -19,7 +19,7 @@ export function ContactForm() {
       {status === "success" ? (
         <div className="py-12 text-center" role="status" aria-live="polite">
           <h3 className="text-2xl font-bold text-green-600 mb-2">Message Sent!</h3>
-          <p className="text-slate-600">We'll get back to you shortly.</p>
+          <p className="text-slate-600">We&apos;ll get back to you shortly.</p>
           <Button onClick={() => setStatus("idle")} variant="outline" className="mt-6">
             Send another message
           </Button>
