@@ -1,7 +1,7 @@
 "use client"
 
 import { FormEvent, useEffect, useRef, useState } from "react"
-import { Bot, MessageCircle, Send, Sparkles, X } from "lucide-react"
+import { Bot, ClipboardList, MessageCircle, Send, Sparkles, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { ChatMessage } from "./chat-types"
 
@@ -22,6 +22,9 @@ export function MariaChatbot() {
   const [messages, setMessages] = useState<ChatMessage[]>([welcomeMessage])
   const [isSending, setIsSending] = useState(false)
   const [error, setError] = useState("")
+  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false)
+  const [enquiryStatus, setEnquiryStatus] = useState<"idle" | "submitting" | "success">("idle")
+  const [enquiry, setEnquiry] = useState({ name: "", email: "", project: "", consent: false })
   const inputRef = useRef<HTMLInputElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -76,6 +79,28 @@ export function MariaChatbot() {
       )
     } finally {
       setIsSending(false)
+    }
+  }
+
+  async function handleEnquirySubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setEnquiryStatus("submitting")
+
+    try {
+      const response = await fetch("/api/enquiries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(enquiry),
+      })
+
+      if (!response.ok) {
+        setEnquiryStatus("idle")
+        return
+      }
+
+      setEnquiryStatus("success")
+    } catch {
+      setEnquiryStatus("idle")
     }
   }
 
@@ -156,6 +181,88 @@ export function MariaChatbot() {
             <p className="mb-2 px-1 text-[11px] text-slate-500">
               Please do not share passwords or confidential information.
             </p>
+            {!isEnquiryOpen && (
+              <button
+                type="button"
+                className="mb-3 inline-flex items-center gap-1.5 px-1 text-xs font-medium text-primary-700 hover:text-primary-900"
+                onClick={() => setIsEnquiryOpen(true)}
+              >
+                <ClipboardList size={14} aria-hidden="true" />
+                Start an enquiry
+              </button>
+            )}
+            {isEnquiryOpen && (
+              <div className="mb-3 rounded-xl border border-primary-100 bg-primary-50/50 p-3">
+                {enquiryStatus === "success" ? (
+                  <div className="space-y-2 text-sm text-slate-700">
+                    <p className="font-medium text-primary-800">Enquiry details captured.</p>
+                    <p className="text-xs leading-relaxed">Please use the contact page to complete delivery to our team.</p>
+                    <button
+                      type="button"
+                      className="text-xs font-medium text-primary-700 underline"
+                      onClick={() => {
+                        setIsEnquiryOpen(false)
+                        setEnquiryStatus("idle")
+                      }}
+                    >
+                      Return to chat
+                    </button>
+                  </div>
+                ) : (
+                  <form className="space-y-2" onSubmit={handleEnquirySubmit}>
+                    <p className="text-xs font-semibold text-slate-800">Tell us about your project</p>
+                    <label className="sr-only" htmlFor="maria-enquiry-name">Your name</label>
+                    <input
+                      id="maria-enquiry-name"
+                      required
+                      maxLength={100}
+                      placeholder="Your name"
+                      value={enquiry.name}
+                      onChange={(event) => setEnquiry({ ...enquiry, name: event.target.value })}
+                      className="h-9 w-full rounded-md border border-slate-300 px-3 text-xs outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                    />
+                    <label className="sr-only" htmlFor="maria-enquiry-email">Your email</label>
+                    <input
+                      id="maria-enquiry-email"
+                      required
+                      type="email"
+                      maxLength={200}
+                      placeholder="Your email"
+                      value={enquiry.email}
+                      onChange={(event) => setEnquiry({ ...enquiry, email: event.target.value })}
+                      className="h-9 w-full rounded-md border border-slate-300 px-3 text-xs outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                    />
+                    <label className="sr-only" htmlFor="maria-enquiry-project">Project details</label>
+                    <textarea
+                      id="maria-enquiry-project"
+                      required
+                      maxLength={2000}
+                      placeholder="What would you like to build?"
+                      value={enquiry.project}
+                      onChange={(event) => setEnquiry({ ...enquiry, project: event.target.value })}
+                      className="min-h-16 w-full resize-y rounded-md border border-slate-300 px-3 py-2 text-xs outline-none focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
+                    />
+                    <label className="flex items-start gap-2 text-[11px] leading-relaxed text-slate-600">
+                      <input
+                        type="checkbox"
+                        required
+                        checked={enquiry.consent}
+                        onChange={(event) => setEnquiry({ ...enquiry, consent: event.target.checked })}
+                        className="mt-0.5 accent-primary-600"
+                      />
+                      I agree to share these details for this enquiry.
+                    </label>
+                    <button
+                      type="submit"
+                      disabled={enquiryStatus === "submitting"}
+                      className="h-9 w-full rounded-md bg-primary-600 text-xs font-medium text-white hover:bg-primary-700 disabled:opacity-60"
+                    >
+                      {enquiryStatus === "submitting" ? "Preparing..." : "Submit enquiry"}
+                    </button>
+                  </form>
+                )}
+              </div>
+            )}
             <form className="flex items-center gap-2" onSubmit={handleSubmit}>
               <label className="sr-only" htmlFor="maria-message">
                 Message Maria
