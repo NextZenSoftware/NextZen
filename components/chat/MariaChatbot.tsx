@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useRef, useState } from "react"
 import { Bot, ClipboardList, MessageCircle, Send, Sparkles, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { ChatMessage } from "./chat-types"
+import { VoiceControls } from "./VoiceControls"
 
 const welcomeMessage: ChatMessage = {
   id: "welcome",
@@ -27,6 +28,7 @@ export function MariaChatbot() {
   const [enquiry, setEnquiry] = useState({ name: "", email: "", project: "", consent: false })
   const inputRef = useRef<HTMLInputElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const lastAssistantMessage = [...messages].reverse().find((message) => message.role === "assistant")
 
   useEffect(() => {
     if (isOpen) {
@@ -286,6 +288,12 @@ export function MariaChatbot() {
                 <Send size={17} aria-hidden="true" />
               </button>
             </form>
+            <div className="mt-1 flex justify-end">
+              <VoiceControls
+                text={lastAssistantMessage?.content ?? ""}
+                onTranscript={setInput}
+              />
+            </div>
           </div>
         </section>
       )}
