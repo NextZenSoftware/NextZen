@@ -10,6 +10,24 @@ type IncomingMessage = {
 const maxMessages = 20
 const maxMessageLength = 1000
 
+function getDemoResponse(messages: IncomingMessage[]) {
+  const latestMessage = messages[messages.length - 1].content.toLowerCase()
+
+  if (latestMessage.includes("price") || latestMessage.includes("cost")) {
+    return "Our pricing depends on your project scope. You can start an enquiry with your name, email, and project details, and our team can prepare the right next step."
+  }
+
+  if (latestMessage.includes("service") || latestMessage.includes("offer")) {
+    return "NextzenSoftware helps with web development, mobile apps, cloud solutions, SEO, UI/UX design, and digital transformation. What are you planning to build?"
+  }
+
+  if (latestMessage.includes("contact") || latestMessage.includes("enquiry") || latestMessage.includes("inquiry")) {
+    return "I can help you start an enquiry. Use the Start an enquiry option below to share your name, email, and project details."
+  }
+
+  return "Thanks for your message. I can help with NextzenSoftware services, project enquiries, and next steps. What would you like to build?"
+}
+
 function isValidMessages(value: unknown): value is IncomingMessage[] {
   return (
     Array.isArray(value) &&
@@ -29,10 +47,23 @@ function isValidMessages(value: unknown): value is IncomingMessage[] {
 
 export async function POST(request: Request) {
   if (!process.env.GEMINI_API_KEY) {
-    return NextResponse.json(
-      { error: "Maria is temporarily unavailable. Please try again later." },
-      { status: 503 }
-    )
+    try {
+      const body = (await request.json()) as { messages?: unknown }
+
+      if (!isValidMessages(body.messages)) {
+        return NextResponse.json(
+          { error: "Please send a valid message." },
+          { status: 400 }
+        )
+      }
+
+      return NextResponse.json({ message: getDemoResponse(body.messages) })
+    } catch {
+      return NextResponse.json(
+        { error: "Please send a valid message." },
+        { status: 400 }
+      )
+    }
   }
 
   try {
