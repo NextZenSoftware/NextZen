@@ -73,7 +73,7 @@ export default function ContactPage() {
             Get in Touch with NextzenSoftware
           </h1>
           <p className="text-xl md:text-2xl text-slate-600 mb-4 max-w-3xl mx-auto">
-            Ready to Transform Your Business Digitally? Let's Build Something Amazing Together
+            Ready to Transform Your Business Digitally? Let&apos;s Build Something Amazing Together
           </p>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
             Contact NextzenSoftware (nextzensoftware) today for expert consultation on web development, cloud solutions, SaaS development, and digital transformation. Our team is here to help you achieve your business goals.
@@ -89,7 +89,7 @@ export default function ContactPage() {
               Why Choose NextzenSoftware for Your Project?
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              We're not just developers—we're your strategic technology partner committed to delivering exceptional results.
+              We&apos;re not just developers—we&apos;re your strategic technology partner committed to delivering exceptional results.
             </p>
           </div>
           
@@ -138,7 +138,7 @@ export default function ContactPage() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">Contact Information</h2>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Reach out to NextzenSoftware (nextzensoftware) through any of these channels. We're available Monday through Friday, 9 AM to 6 PM EST. For urgent matters, please use our contact form and we'll respond within 24 hours.
+              Reach out to NextzenSoftware (nextzensoftware) through any of these channels. We&apos;re available Monday through Friday, 9 AM to 6 PM EST. For urgent matters, please use our contact form and we&apos;ll respond within 24 hours.
             </p>
             
             <div className="space-y-6">
@@ -219,7 +219,7 @@ export default function ContactPage() {
             <div className="mb-6">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-slate-900">Send Us a Message</h2>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Fill out the form below and our team at NextzenSoftware (nextzensoftware) will get back to you within 24 hours. Whether you need web development, cloud solutions, or digital transformation services, we're here to help.
+                Fill out the form below and our team at NextzenSoftware (nextzensoftware) will get back to you within 24 hours. Whether you need web development, cloud solutions, or digital transformation services, we&apos;re here to help.
               </p>
             </div>
             <ContactForm />
@@ -275,7 +275,7 @@ export default function ContactPage() {
 
           <div className="mt-12 text-center">
             <p className="text-slate-600 mb-6">
-              Still have questions? Don't hesitate to reach out to us.
+              Still have questions? Don&apos;t hesitate to reach out to us.
             </p>
             <Button size="lg" asChild>
               <Link href="/contact">Contact Us Now</Link>

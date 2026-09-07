@@ -28,7 +28,7 @@ export default function NotFound() {
         >
            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Page Not Found</h2>
            <p className="text-slate-400 max-w-md mx-auto mb-8">
-             Oops! It seems you've ventured into the digital void. The page you are looking for doesn't exist or has been moved.
+             Oops! It seems you&apos;ve ventured into the digital void. The page you are looking for doesn&apos;t exist or has been moved.
            </p>
            <div className="flex gap-4 justify-center">
              <Button variant="default" size="lg" asChild>

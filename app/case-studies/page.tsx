@@ -1,8 +1,7 @@
 import { Section } from "@/components/layout/Section"
 import { Card, CardContent } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
-import { ArrowRight, ExternalLink } from "lucide-react"
-import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -60,7 +59,7 @@ export default function CaseStudiesPage() {
             Our Portfolio
           </h1>
           <p className="text-xl text-slate-600">
-            We take pride in delivering exceptional results. Explore how we've helped businesses transform and grow.
+            We take pride in delivering exceptional results. Explore how we&apos;ve helped businesses transform and grow.
           </p>
         </div>
       </Section>
