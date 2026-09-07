@@ -13,6 +13,15 @@ const maxMessageLength = 1000
 function getDemoResponse(messages: IncomingMessage[]) {
   const latestMessage = messages[messages.length - 1].content.toLowerCase()
 
+  if (
+    latestMessage.includes("hotel") ||
+    (latestMessage.includes("react") &&
+      latestMessage.includes("next") &&
+      latestMessage.includes("node"))
+  ) {
+    return "That sounds like a great project. For a hotel website, we can plan a responsive Next.js frontend with room listings, image galleries, booking or enquiry flows, and a Node.js backend for availability and content management. Would you like to start with a booking system, an enquiry-only website, or both?"
+  }
+
   if (latestMessage.includes("price") || latestMessage.includes("cost")) {
     return "Our pricing depends on your project scope. You can start an enquiry with your name, email, and project details, and our team can prepare the right next step."
   }
@@ -25,7 +34,7 @@ function getDemoResponse(messages: IncomingMessage[]) {
     return "I can help you start an enquiry. Use the Start an enquiry option below to share your name, email, and project details."
   }
 
-  return "Thanks for your message. I can help with NextzenSoftware services, project enquiries, and next steps. What would you like to build?"
+  return "Thanks for sharing that. I can help shape the project scope, suggest a React/Next.js and Node.js setup, and guide you through an enquiry. Tell me what you want to build, who will use it, and the most important feature."
 }
 
 function isValidMessages(value: unknown): value is IncomingMessage[] {
