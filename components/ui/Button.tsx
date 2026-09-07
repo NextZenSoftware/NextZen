@@ -3,10 +3,6 @@ import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
-// Note: I am simulating "@radix-ui/react-slot" usage by creating a fallback if not installed, 
-// OR I should use standard button. Since I didn't install radix slot, I will implement a standard button.
-// But wait, the user wants premium design. I can implement the functionality directly.
-
 const buttonVariants = cva(
   "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
@@ -50,9 +46,10 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, rounded, asChild = false, ...props }, ref) => {
-    // Standard button implementation without Radix Slot for simplicity unless needed
+    const Comp = asChild ? Slot : "button"
+
     return (
-      <button
+      <Comp
         className={cn(buttonVariants({ variant, size, rounded, className }))}
         ref={ref}
         {...props}

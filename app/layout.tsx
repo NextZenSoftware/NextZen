@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     siteName: "NextzenSoftware",
     images: [
       {
-        url: "/images/og-image.jpg", // Make sure to create this image
+        url: "/images/hero-illustration.png",
         width: 1200,
         height: 630,
         alt: "NextzenSoftware - Digital Solutions",
@@ -50,13 +50,11 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NextzenSoftware - Modern Cloud & Web Solutions | nextzensoftware",
     description: "NextzenSoftware (nextzensoftware) - Advanced SaaS solutions, web development, cloud services, and digital transformation for forward-thinking companies.",
-    images: ["/images/og-image.jpg"],
+    images: ["/images/hero-illustration.png"],
     creator: "@nextzensoftware",
   },
   icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png", // Add this if you have one
+    icon: "/next.svg",
   },
 };
 
