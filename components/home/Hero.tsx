@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/Button"
 import { motion } from "framer-motion"
-import { ArrowRight, Code, Cloud, Zap } from "lucide-react"
+import { ArrowRight, Code, Cloud } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 
