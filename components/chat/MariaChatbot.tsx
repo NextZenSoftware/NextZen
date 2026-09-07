@@ -20,6 +20,8 @@ export function MariaChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState("")
   const [messages, setMessages] = useState<ChatMessage[]>([welcomeMessage])
+  const [isSending, setIsSending] = useState(false)
+  const [error, setError] = useState("")
   const inputRef = useRef<HTMLInputElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -33,23 +35,48 @@ export function MariaChatbot() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     const trimmedInput = input.trim()
 
-    if (!trimmedInput) {
+    if (!trimmedInput || isSending) {
       return
     }
 
-    setMessages((currentMessages) => [
-      ...currentMessages,
-      createMessage("user", trimmedInput),
-      createMessage(
-        "assistant",
-        "Thanks for reaching out. I am getting ready to help with that. You can also share your project details through our contact page."
-      ),
-    ])
+    const userMessage = createMessage("user", trimmedInput)
+    const nextMessages = [...messages, userMessage]
+    setMessages(nextMessages)
     setInput("")
+    setError("")
+    setIsSending(true)
+
+    try {
+      const response = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          messages: nextMessages.map(({ role, content }) => ({ role, content })),
+        }),
+      })
+      const data = (await response.json()) as { message?: string; error?: string }
+
+      if (!response.ok || !data.message) {
+        throw new Error(data.error ?? "Maria could not respond right now.")
+      }
+
+      setMessages((currentMessages) => [
+        ...currentMessages,
+        createMessage("assistant", data.message as string),
+      ])
+    } catch (requestError) {
+      setError(
+        requestError instanceof Error
+          ? requestError.message
+          : "Maria could not respond right now."
+      )
+    } finally {
+      setIsSending(false)
+    }
   }
 
   return (
@@ -109,6 +136,19 @@ export function MariaChatbot() {
                 </p>
               </div>
             ))}
+            {isSending && (
+              <div className="flex items-center gap-2 text-sm text-slate-500">
+                <div className="flex h-7 w-7 items-center justify-center rounded-full bg-primary-100 text-primary-700">
+                  <Bot size={15} aria-hidden="true" />
+                </div>
+                Maria is thinking...
+              </div>
+            )}
+            {error && (
+              <p className="rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-xs text-red-700">
+                {error}
+              </p>
+            )}
             <div ref={messagesEndRef} />
           </div>
 
@@ -127,11 +167,13 @@ export function MariaChatbot() {
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask Maria something..."
                 maxLength={1000}
+                disabled={isSending}
                 className="h-10 min-w-0 flex-1 rounded-full border border-slate-300 px-4 text-sm text-slate-900 outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
               />
               <button
                 type="submit"
                 aria-label="Send message"
+                disabled={isSending || !input.trim()}
                 className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-600 text-white transition hover:bg-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
               >
                 <Send size={17} aria-hidden="true" />
