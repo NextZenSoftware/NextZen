@@ -2,7 +2,7 @@
 
 import { Section } from "@/components/layout/Section"
 import { Button } from "@/components/ui/Button"
-import { Check, ArrowRight, CloudCog, Database, Server, ShieldCheck, Cloud } from "lucide-react"
+import { Check, CloudCog, Database, Server, ShieldCheck, Cloud } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"

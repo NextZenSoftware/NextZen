@@ -1,6 +1,6 @@
 import { Section } from "@/components/layout/Section"
 import { Button } from "@/components/ui/Button"
-import { Check, Star, ArrowRight, Shield, Clock, Users, Award, Zap, CheckCircle2 } from "lucide-react"
+import { Star, ArrowRight, Shield, Clock, Users, Award, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/Card"
 import { Metadata } from "next"
@@ -276,7 +276,7 @@ export default function PricingPage() {
               Plan Comparison: NextzenSoftware Services
             </h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Compare what's included in each NextzenSoftware (nextzensoftware) pricing plan
+              Compare what&apos;s included in each NextzenSoftware (nextzensoftware) pricing plan
             </p>
           </div>
           
