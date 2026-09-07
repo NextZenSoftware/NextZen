@@ -16,6 +16,22 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Maria Gemini Setup
+
+Maria needs a Gemini API key for live replies. Copy the example environment file and add your key locally:
+
+```powershell
+Copy-Item .env.example .env.local
+```
+
+Then set `GEMINI_API_KEY` in `.env.local` and restart the development server:
+
+```powershell
+npm run dev
+```
+
+Never commit `.env.local` or share the API key. The key is used only by the server-side chat route.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
