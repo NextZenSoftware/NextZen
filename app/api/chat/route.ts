@@ -34,7 +34,7 @@ function getDemoResponse(messages: IncomingMessage[]) {
     return "I can help you start an enquiry. Use the Start an enquiry option below to share your name, email, and project details."
   }
 
-  return "Thanks for sharing that. I can help shape the project scope, suggest a React/Next.js and Node.js setup, and guide you through an enquiry. Tell me what you want to build, who will use it, and the most important feature."
+  return "I may not have enough context to resolve that here. I can raise this with our team, and they will review your recent query and get back to you as soon as possible. You can also use Start an enquiry below to share your details."
 }
 
 function isValidMessages(value: unknown): value is IncomingMessage[] {
