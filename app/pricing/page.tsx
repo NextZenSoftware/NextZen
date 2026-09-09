@@ -3,22 +3,14 @@ import { Button } from "@/components/ui/Button"
 import { Star, ArrowRight, Shield, Clock, Users, Award, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/Card"
-import { Metadata } from "next"
+import { createPageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Pricing Plans - NextzenSoftware | nextzensoftware - Transparent IT Service Pricing",
-  description: "Transparent pricing plans from NextzenSoftware (nextzensoftware) for web development, cloud solutions, SaaS development, and digital transformation. Choose from Startup ($999), Business ($2,499), or Enterprise (Custom) plans. No hidden fees, flexible options.",
-  keywords: ["nextzensoftware", "NextzenSoftware", "pricing", "web development pricing", "cloud solutions pricing", "SaaS pricing", "IT services pricing", "software development cost", "nextzen pricing", "affordable web development"],
-  alternates: {
-    canonical: 'https://www.nextzensoftware.com/pricing',
-  },
-  openGraph: {
-    title: "Pricing Plans - NextzenSoftware | nextzensoftware",
-    description: "Transparent pricing plans for web development, cloud solutions, and digital transformation services from NextzenSoftware (nextzensoftware). Startup, Business, and Enterprise options available.",
-    url: "https://www.nextzensoftware.com/pricing",
-    siteName: "NextzenSoftware",
-  },
-}
+export const metadata = createPageMetadata({
+  title: "Web and Software Development Pricing",
+  description: "Review NextzenSoftware service packages and project pricing options for websites, apps, cloud solutions, and digital products.",
+  path: "/pricing",
+  keywords: ["web development pricing", "software development pricing", "app development cost"],
+})
 
 const plans = [
   {

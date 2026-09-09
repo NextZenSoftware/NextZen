@@ -1,20 +1,12 @@
-import { Metadata } from "next"
+import { createPageMetadata } from "@/lib/seo"
 import { AboutPageClient } from "./AboutPageClient"
 
-export const metadata: Metadata = {
-  title: "About Us - NextzenSoftware | nextzensoftware - Our Team & Vision",
-  description: "Learn about NextzenSoftware (nextzensoftware) - a technology-driven company with 50+ experts specializing in scalable digital solutions, web development, cloud services, and digital transformation. 10+ years of experience, 100+ successful projects.",
-  keywords: ["nextzensoftware", "NextzenSoftware", "about nextzensoftware", "our team", "company values", "digital solutions company", "IT company", "software development team", "nextzen team"],
-  alternates: {
-    canonical: 'https://www.nextzensoftware.com/about',
-  },
-  openGraph: {
-    title: "About NextzenSoftware - Our Team & Vision | nextzensoftware",
-    description: "NextzenSoftware (nextzensoftware) - A technology-driven company with 50+ experts specializing in scalable digital solutions, web development, and cloud services.",
-    url: "https://www.nextzensoftware.com/about",
-    siteName: "NextzenSoftware",
-  },
-}
+export const metadata = createPageMetadata({
+  title: "About NextzenSoftware",
+  description: "Learn about NextzenSoftware, our approach to digital products, and the team behind our web, app, and cloud solutions.",
+  path: "/about",
+  keywords: ["about NextzenSoftware", "software development team", "digital solutions company"],
+})
 
 export default function AboutPage() {
     return <AboutPageClient />

@@ -1,26 +1,40 @@
 "use client"
 
 import { FormEvent, useEffect, useRef, useState } from "react"
-import { Bot, ClipboardList, MessageCircle, Send, Sparkles, X } from "lucide-react"
+import { Bot, ClipboardList, MessageCircle, Plus, Send, Sparkles, X } from "lucide-react"
 import { cn } from "@/lib/utils"
 import type { ChatMessage } from "./chat-types"
 import { VoiceControls } from "./VoiceControls"
 
-const welcomeMessage: ChatMessage = {
-  id: "welcome",
-  role: "assistant",
-  content:
-    "Hi, I am Maria, NextzenSoftware's virtual assistant. I can answer questions about our services or help you start an enquiry.",
+function createMessage(role: ChatMessage["role"], content: string): ChatMessage {
+  return { id: `${role}-${Date.now()}-${Math.random()}`, role, content }
 }
 
-function createMessage(role: ChatMessage["role"], content: string): ChatMessage {
-  return { id: `${role}-${Date.now()}`, role, content }
+type Conversation = {
+  id: string
+  title: string
+  messages: ChatMessage[]
+  updatedAt: number
+}
+
+const conversationsKey = "nextzen-maria-conversations"
+const emptyMessages: ChatMessage[] = []
+
+function createConversation(): Conversation {
+  return {
+    id: `conversation-${Date.now()}`,
+    title: "New conversation",
+    messages: [],
+    updatedAt: Date.now(),
+  }
 }
 
 export function MariaChatbot() {
   const [isOpen, setIsOpen] = useState(false)
   const [input, setInput] = useState("")
-  const [messages, setMessages] = useState<ChatMessage[]>([welcomeMessage])
+  const [conversations, setConversations] = useState<Conversation[]>([])
+  const [activeConversationId, setActiveConversationId] = useState("")
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const [isSending, setIsSending] = useState(false)
   const [error, setError] = useState("")
   const [isEnquiryOpen, setIsEnquiryOpen] = useState(false)
@@ -28,7 +42,40 @@ export function MariaChatbot() {
   const [enquiry, setEnquiry] = useState({ name: "", email: "", project: "", consent: false })
   const inputRef = useRef<HTMLInputElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const activeConversation = conversations.find(({ id }) => id === activeConversationId)
+  const messages = activeConversation?.messages ?? emptyMessages
   const lastAssistantMessage = [...messages].reverse().find((message) => message.role === "assistant")
+
+  useEffect(() => {
+    const loadConversations = () => {
+      try {
+        const stored = window.localStorage.getItem(conversationsKey)
+        const savedConversations = stored ? (JSON.parse(stored) as Conversation[]) : []
+
+        if (savedConversations.length > 0) {
+          setConversations(savedConversations)
+          setActiveConversationId(savedConversations[0].id)
+        } else {
+          const conversation = createConversation()
+          setConversations([conversation])
+          setActiveConversationId(conversation.id)
+        }
+      } catch {
+        const conversation = createConversation()
+        setConversations([conversation])
+        setActiveConversationId(conversation.id)
+      }
+    }
+
+    const timeoutId = window.setTimeout(loadConversations, 0)
+    return () => window.clearTimeout(timeoutId)
+  }, [])
+
+  useEffect(() => {
+    if (conversations.length > 0) {
+      window.localStorage.setItem(conversationsKey, JSON.stringify(conversations))
+    }
+  }, [conversations])
 
   useEffect(() => {
     if (isOpen) {
@@ -48,9 +95,13 @@ export function MariaChatbot() {
       return
     }
 
+    if (!activeConversation) {
+      return
+    }
+
     const userMessage = createMessage("user", trimmedInput)
     const nextMessages = [...messages, userMessage]
-    setMessages(nextMessages)
+    updateConversation(activeConversation.id, nextMessages, trimmedInput)
     setInput("")
     setError("")
     setIsSending(true)
@@ -69,10 +120,7 @@ export function MariaChatbot() {
         throw new Error(data.error ?? "Maria could not respond right now.")
       }
 
-      setMessages((currentMessages) => [
-        ...currentMessages,
-        createMessage("assistant", data.message as string),
-      ])
+      updateConversation(activeConversation.id, [...nextMessages, createMessage("assistant", data.message as string)])
     } catch (requestError) {
       setError(
         requestError instanceof Error
@@ -82,6 +130,32 @@ export function MariaChatbot() {
     } finally {
       setIsSending(false)
     }
+  }
+
+  function updateConversation(id: string, nextMessages: ChatMessage[], title?: string) {
+    setConversations((currentConversations) =>
+      currentConversations.map((conversation) =>
+        conversation.id === id
+          ? {
+              ...conversation,
+              messages: nextMessages,
+              title: title && conversation.messages.length === 0 ? title.slice(0, 32) : conversation.title,
+              updatedAt: Date.now(),
+            }
+          : conversation
+      )
+    )
+  }
+
+  function startNewConversation() {
+    const conversation = createConversation()
+    setConversations((currentConversations) => [conversation, ...currentConversations])
+    setActiveConversationId(conversation.id)
+    setInput("")
+    setError("")
+    setIsEnquiryOpen(false)
+    setEnquiryStatus("idle")
+    setIsSidebarOpen(false)
   }
 
   async function handleEnquirySubmit(event: FormEvent<HTMLFormElement>) {
@@ -106,38 +180,63 @@ export function MariaChatbot() {
     }
   }
 
+  const sortedConversations = [...conversations].sort((first, second) => second.updatedAt - first.updatedAt)
+
   return (
     <div className="fixed bottom-5 right-5 z-[60] flex flex-col items-end gap-3 sm:bottom-6 sm:right-6">
       {isOpen && (
         <section
           aria-label="Chat with Maria"
-          className="flex h-[min(600px,calc(100vh-120px))] w-[min(380px,calc(100vw-2rem))] flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/20"
+          className="flex h-[min(640px,calc(100vh-120px))] w-[min(720px,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl shadow-slate-900/20"
         >
-          <header className="flex items-center justify-between bg-slate-950 px-5 py-4 text-white">
-            <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-500">
-                <Sparkles size={19} aria-hidden="true" />
-              </div>
-              <div>
-                <h2 className="font-semibold">Maria</h2>
-                <p className="text-xs text-slate-300">NextzenSoftware assistant</p>
-              </div>
+          <aside className={cn("absolute inset-y-0 left-0 z-10 flex w-64 flex-col border-r border-slate-200 bg-white transition-transform md:relative md:translate-x-0", isSidebarOpen ? "translate-x-0" : "-translate-x-full")}>
+            <div className="flex items-center justify-between border-b border-slate-200 px-4 py-4">
+              <p className="text-sm font-semibold text-slate-900">Your conversations</p>
+              <button type="button" aria-label="Close conversation list" onClick={() => setIsSidebarOpen(false)} className="rounded-md p-1 text-slate-500 hover:bg-slate-100 md:hidden">
+                <X size={17} aria-hidden="true" />
+              </button>
             </div>
-            <button
-              type="button"
-              aria-label="Close Maria chat"
-              className="rounded-md p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
-              onClick={() => setIsOpen(false)}
-            >
-              <X size={19} aria-hidden="true" />
+            <button type="button" onClick={startNewConversation} className="m-3 flex items-center justify-center gap-2 rounded-lg border border-primary-200 px-3 py-2 text-sm font-medium text-primary-700 hover:bg-primary-50">
+              <Plus size={16} aria-hidden="true" /> New chat
             </button>
-          </header>
+            <nav aria-label="Previous conversations" className="flex-1 space-y-1 overflow-y-auto px-2 pb-3">
+              {sortedConversations.map((conversation) => (
+                <button key={conversation.id} type="button" onClick={() => { setActiveConversationId(conversation.id); setIsSidebarOpen(false) }} className={cn("w-full rounded-lg px-3 py-2 text-left text-sm", conversation.id === activeConversationId ? "bg-primary-50 font-medium text-primary-800" : "text-slate-600 hover:bg-slate-50")}>
+                  <span className="block truncate">{conversation.title}</span>
+                  <span className="mt-1 block text-[11px] text-slate-400">{conversation.messages.length} {conversation.messages.length === 1 ? "message" : "messages"}</span>
+                </button>
+              ))}
+            </nav>
+            <p className="border-t border-slate-200 px-3 py-3 text-[11px] leading-relaxed text-slate-500">Chats are currently saved in this browser. Gmail sync requires sign-in.</p>
+          </aside>
 
-          <div
-            className="flex-1 space-y-4 overflow-y-auto bg-slate-50 p-4"
-            aria-live="polite"
-            aria-label="Chat messages"
-          >
+          <div className="flex min-w-0 flex-1 flex-col">
+            <header className="flex items-center justify-between bg-slate-950 px-4 py-4 text-white sm:px-5">
+              <div className="flex items-center gap-3">
+                <button type="button" aria-label="Open conversation list" onClick={() => setIsSidebarOpen(true)} className="rounded-md p-2 text-slate-300 hover:bg-white/10 md:hidden">
+                  <MessageCircle size={18} aria-hidden="true" />
+                </button>
+                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-500">
+                  <Sparkles size={19} aria-hidden="true" />
+                </div>
+                <div>
+                  <h2 className="font-semibold">Maria</h2>
+                  <p className="text-xs text-slate-300">NextzenSoftware assistant</p>
+                </div>
+              </div>
+              <button type="button" aria-label="Close Maria chat" className="rounded-md p-2 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white" onClick={() => setIsOpen(false)}>
+                <X size={19} aria-hidden="true" />
+              </button>
+            </header>
+
+            <div className="flex-1 space-y-4 overflow-y-auto bg-slate-50 p-4" aria-live="polite" aria-label="Chat messages">
+            {messages.length === 0 && (
+              <div className="flex h-full flex-col items-center justify-center px-6 text-center">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary-100 text-primary-700"><Bot size={23} aria-hidden="true" /></div>
+                <h3 className="text-lg font-semibold text-slate-900">Start a conversation with Maria</h3>
+                <p className="mt-2 max-w-sm text-sm leading-relaxed text-slate-500">Ask about our services, share a project idea, or request help from the NextzenSoftware team.</p>
+              </div>
+            )}
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -177,7 +276,7 @@ export function MariaChatbot() {
               </p>
             )}
             <div ref={messagesEndRef} />
-          </div>
+            </div>
 
           <div className="border-t border-slate-200 bg-white p-3">
             <p className="mb-2 px-1 text-[11px] text-slate-500">
@@ -269,12 +368,15 @@ export function MariaChatbot() {
               <label className="sr-only" htmlFor="maria-message">
                 Message Maria
               </label>
-              <input
+                <input
                 ref={inputRef}
                 id="maria-message"
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
                 placeholder="Ask Maria something..."
+                  autoComplete="off"
+                  autoCorrect="off"
+                  spellCheck="true"
                 maxLength={1000}
                 disabled={isSending}
                 className="h-10 min-w-0 flex-1 rounded-full border border-slate-300 px-4 text-sm text-slate-900 outline-none transition focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20"
@@ -293,6 +395,7 @@ export function MariaChatbot() {
                 text={lastAssistantMessage?.content ?? ""}
                 onTranscript={setInput}
               />
+            </div>
             </div>
           </div>
         </section>

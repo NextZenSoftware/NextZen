@@ -2,22 +2,14 @@ import { Section } from "@/components/layout/Section"
 import { Card, CardContent } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
 import { ArrowRight } from "lucide-react"
-import { Metadata } from "next"
+import { createPageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Case Studies - NextzenSoftware | nextzensoftware - Portfolio & Projects",
-  description: "Explore NextzenSoftware (nextzensoftware) portfolio of successful projects and digital transformations. See how we've helped businesses with web development, cloud migration, mobile apps, and e-commerce solutions. Real results from real clients.",
-  keywords: ["nextzensoftware", "NextzenSoftware", "case studies", "portfolio", "projects", "web development projects", "cloud migration examples", "mobile app development", "e-commerce solutions", "digital transformation projects", "nextzen portfolio"],
-  alternates: {
-    canonical: 'https://www.nextzensoftware.com/case-studies',
-  },
-  openGraph: {
-    title: "Case Studies - NextzenSoftware | nextzensoftware",
-    description: "Explore NextzenSoftware (nextzensoftware) portfolio of successful projects and digital transformations. Real results from real clients.",
-    url: "https://www.nextzensoftware.com/case-studies",
-    siteName: "NextzenSoftware",
-  },
-}
+export const metadata = createPageMetadata({
+  title: "Digital Product Case Studies",
+  description: "See examples of web, cloud, mobile, and digital product work delivered by NextzenSoftware.",
+  path: "/case-studies",
+  keywords: ["software case studies", "web development portfolio", "cloud migration projects"],
+})
 
 const projects = [
   {

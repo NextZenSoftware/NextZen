@@ -3,61 +3,27 @@ import { ContactForm } from "@/components/contact/ContactForm"
 import { Mail, Phone, MapPin, Clock, MessageSquare, Users, Award, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import Link from "next/link"
-import { Metadata } from "next"
+import { createPageMetadata, siteName, siteUrl } from "@/lib/seo"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 
-export const metadata: Metadata = {
-  title: "Contact Us - NextzenSoftware | nextzensoftware - Get Expert IT Consultation",
-  description: "Contact NextzenSoftware (nextzensoftware) for expert web development, cloud solutions, and digital transformation services. Get free consultation from our IT experts. Reach out via email, phone, or contact form. We're here to help transform your business digitally.",
-  keywords: ["nextzensoftware", "NextzenSoftware", "contact nextzensoftware", "IT consultation", "web development contact", "cloud solutions contact", "digital transformation consultation", "nextzen contact", "software development contact"],
-  alternates: {
-    canonical: 'https://www.nextzensoftware.com/contact',
-  },
-  openGraph: {
-    title: "Contact NextzenSoftware - Expert IT Consultation | nextzensoftware",
-    description: "Get in touch with NextzenSoftware (nextzensoftware) for expert web development, cloud solutions, and digital transformation services. Free consultation available.",
-    url: "https://www.nextzensoftware.com/contact",
-    siteName: "NextzenSoftware",
-  },
-}
+export const metadata = createPageMetadata({
+  title: "Contact NextzenSoftware",
+  description:
+    "Tell NextzenSoftware about your website, app, cloud, or digital transformation project and start a conversation with our team.",
+  path: "/contact",
+  keywords: ["contact software agency", "web development consultation", "app development consultation"],
+})
 
 export default function ContactPage() {
   const jsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    '@id': 'https://www.nextzensoftware.com/contact',
-    name: 'NextzenSoftware',
-    alternateName: 'nextzensoftware',
-    description: 'NextzenSoftware (nextzensoftware) - Expert web development, cloud solutions, and digital transformation services. Contact us for IT consultation and enterprise software solutions.',
-    url: 'https://www.nextzensoftware.com',
-    telephone: '+1-555-123-4567',
+    '@id': `${siteUrl}/contact`,
+    name: siteName,
+    description: 'Contact NextzenSoftware about web, app, cloud, and digital transformation projects.',
+    url: siteUrl,
     email: 'hello@nextzensoftware.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '123 Tech Park, Innovation Street',
-      addressLocality: 'Silicon Valley',
-      addressRegion: 'CA',
-      postalCode: '94043',
-      addressCountry: 'US'
-    },
-    geo: {
-      '@type': 'GeoCoordinates',
-      latitude: '37.3875',
-      longitude: '-122.0575'
-    },
-    openingHoursSpecification: {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '18:00',
-      timeZone: 'America/Los_Angeles'
-    },
     areaServed: 'Worldwide',
-    priceRange: '$$',
-    sameAs: [
-      'https://twitter.com/nextzensoftware',
-      'https://www.linkedin.com/company/nextzensoftware'
-    ]
+    serviceType: 'Software development and digital solutions',
   }
 
   return (
