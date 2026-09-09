@@ -1,18 +1,12 @@
 import { Section } from "@/components/layout/Section"
-import { Metadata } from "next"
+import { createPageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Privacy Policy - NextzenSoftware | nextzensoftware",
-  description: "NextzenSoftware (nextzensoftware) Privacy Policy - Learn how we collect, use, and protect your personal data. Our commitment to data privacy and security for all users of NextzenSoftware services.",
-  keywords: ["nextzensoftware", "NextzenSoftware", "privacy policy", "data privacy", "data protection", "GDPR compliance", "nextzen privacy"],
-  alternates: {
-    canonical: 'https://www.nextzensoftware.com/privacy',
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-}
+export const metadata = createPageMetadata({
+  title: "Privacy Policy",
+  description: "Read the NextzenSoftware privacy policy to learn how we collect, use, and protect personal information.",
+  path: "/privacy",
+  keywords: ["NextzenSoftware privacy policy", "data privacy", "data protection"],
+})
 
 export default function PrivacyPage() {
   return (

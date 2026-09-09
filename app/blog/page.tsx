@@ -2,22 +2,14 @@ import { Section } from "@/components/layout/Section"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
 import { Calendar, User } from "lucide-react"
 import Link from "next/link"
-import { Metadata } from "next"
+import { createPageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Blog - NextzenSoftware | nextzensoftware - Tech Insights & News",
-  description: "Read insights, tutorials, and news from NextzenSoftware (nextzensoftware) expert team. Learn about web development, cloud solutions, SaaS, digital transformation, and modern technology trends. Stay updated with latest IT industry news.",
-  keywords: ["nextzensoftware", "NextzenSoftware", "blog", "tech blog", "IT insights", "web development blog", "cloud solutions blog", "digital transformation", "technology news", "nextzen blog"],
-  alternates: {
-    canonical: 'https://www.nextzensoftware.com/blog',
-  },
-  openGraph: {
-    title: "Blog - NextzenSoftware | nextzensoftware",
-    description: "Insights, tutorials, and news from NextzenSoftware (nextzensoftware) expert team on web development, cloud solutions, and digital transformation.",
-    url: "https://www.nextzensoftware.com/blog",
-    siteName: "NextzenSoftware",
-  },
-}
+export const metadata = createPageMetadata({
+  title: "Technology Insights",
+  description: "Explore practical insights from NextzenSoftware about web development, cloud platforms, digital products, and modern technology.",
+  path: "/blog",
+  keywords: ["web development blog", "cloud technology insights", "digital product blog"],
+})
 
 const posts = [
   {

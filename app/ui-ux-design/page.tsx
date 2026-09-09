@@ -1,20 +1,12 @@
-import { Metadata } from "next"
+import { createPageMetadata } from "@/lib/seo"
 import { UIUXDesignPageClient } from "./UIUXDesignPageClient"
 
-export const metadata: Metadata = {
-  title: "UI/UX Design Services - NextzenSoftware | nextzensoftware - User Experience Design",
-  description: "NextzenSoftware (nextzensoftware) offers expert UI/UX design services including wireframing, prototyping, visual design, user research, design systems, and interaction design. Create beautiful, user-centric digital experiences.",
-  keywords: ["nextzensoftware", "NextzenSoftware", "UI/UX design", "user experience design", "user interface design", "wireframing", "prototyping", "design systems", "UX research", "interaction design", "nextzen design"],
-  alternates: {
-    canonical: 'https://www.nextzensoftware.com/ui-ux-design',
-  },
-  openGraph: {
-    title: "UI/UX Design Services - NextzenSoftware | nextzensoftware",
-    description: "Expert UI/UX design services from NextzenSoftware (nextzensoftware) - wireframing, prototyping, visual design, and user research.",
-    url: "https://www.nextzensoftware.com/ui-ux-design",
-    siteName: "NextzenSoftware",
-  },
-}
+export const metadata = createPageMetadata({
+  title: "UI/UX Design Services",
+  description: "Create clear, accessible digital experiences through research, wireframes, prototypes, visual design, and design systems.",
+  path: "/ui-ux-design",
+  keywords: ["UI/UX design", "user experience design", "wireframing", "design systems"],
+})
 
 export default function UIUXDesignPage() {
   return <UIUXDesignPageClient />
