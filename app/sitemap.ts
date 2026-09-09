@@ -1,9 +1,7 @@
 import { MetadataRoute } from 'next'
+import { siteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.nextzensoftware.com'
-
-  // Static pages with optimized priorities for SEO
   const routes = [
     {
       route: '',
@@ -81,8 +79,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'yearly' as const,
     },
   ].map(({ route, priority, changeFrequency }) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    url: `${siteUrl}${route}`,
     changeFrequency,
     priority,
   }))

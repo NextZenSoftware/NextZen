@@ -6,20 +6,20 @@ import { Footer } from "@/components/layout/Footer";
 import { GoogleAnalytics } from "@/components/analytics/GoogleAnalytics";
 import { MariaChatbot } from "@/components/chat/MariaChatbot";
 import { cn } from "@/lib/utils";
+import { siteDescription, siteName, siteUrl, socialImage } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.nextzensoftware.com"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "NextzenSoftware - Modern Cloud & Web Solutions | nextzensoftware",
-    template: "%s | NextzenSoftware",
+    default: `${siteName} | Web, App & Cloud Solutions`,
+    template: `%s | ${siteName}`,
   },
-  description: "NextzenSoftware (nextzensoftware) - Advanced SaaS solutions, web development, cloud services, and digital transformation for forward-thinking companies. Expert in scalable, secure, and high-performance digital products.",
-  keywords: ["nextzensoftware", "NextzenSoftware", "Web Development", "Cloud Solutions", "SaaS", "App Development", "SEO Optimization", "UI/UX Design", "Next.js", "React", "Software Agency", "Digital Solutions", "Enterprise Software"],
-  authors: [{ name: "NextzenSoftware Team" }],
-  creator: "NextzenSoftware",
-  publisher: "NextzenSoftware",
+  description: siteDescription,
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
   robots: {
     index: true,
     follow: true,
@@ -34,25 +34,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.nextzensoftware.com",
-    title: "NextzenSoftware - Modern Cloud & Web Solutions | nextzensoftware",
-    description: "NextzenSoftware (nextzensoftware) - Advanced SaaS solutions, web development, cloud services, and digital transformation for forward-thinking companies.",
-    siteName: "NextzenSoftware",
+    url: siteUrl,
+    title: `${siteName} | Web, App & Cloud Solutions`,
+    description: siteDescription,
+    siteName,
     images: [
       {
-        url: "/images/hero-illustration.png",
+        url: socialImage,
         width: 1200,
         height: 630,
-        alt: "NextzenSoftware - Digital Solutions",
+        alt: `${siteName} digital solutions`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "NextzenSoftware - Modern Cloud & Web Solutions | nextzensoftware",
-    description: "NextzenSoftware (nextzensoftware) - Advanced SaaS solutions, web development, cloud services, and digital transformation for forward-thinking companies.",
-    images: ["/images/hero-illustration.png"],
-    creator: "@nextzensoftware",
+    title: `${siteName} | Web, App & Cloud Solutions`,
+    description: siteDescription,
+    images: [socialImage],
   },
   icons: {
     icon: "/next.svg",
