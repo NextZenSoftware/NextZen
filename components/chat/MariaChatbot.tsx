@@ -75,7 +75,7 @@ export function MariaChatbot() {
       const response = await fetch("/api/enquiries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(enquiry),
+        body: JSON.stringify({ ...enquiry, source: "chatbot" }),
       })
       if (!response.ok) {
         setEnquiryStatus("idle")
