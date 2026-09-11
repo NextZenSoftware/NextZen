@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from "lucide-react"
+import { company } from "@/lib/company"
 
 export function Footer() {
   return (
@@ -15,9 +16,9 @@ export function Footer() {
               Empowering businesses with modern cloud solutions and cutting-edge web development. We build the future of your digital presence.
             </p>
             <div className="flex gap-4">
-              <SocialLink href="#" icon={<Linkedin size={20} />} label="LinkedIn" />
-              <SocialLink href="#" icon={<Twitter size={20} />} label="Twitter" />
-              <SocialLink href="#" icon={<Facebook size={20} />} label="Facebook" />
+              <SocialLink href={company.social.linkedin} icon={<Linkedin size={20} />} label="LinkedIn" />
+              <SocialLink href={company.social.twitter} icon={<Twitter size={20} />} label="Twitter" />
+              <SocialLink href={company.social.facebook} icon={<Facebook size={20} />} label="Facebook" />
             </div>
           </div>
 
@@ -51,15 +52,15 @@ export function Footer() {
             <ul className="space-y-4">
               <li className="flex items-start gap-3 text-slate-600 text-sm">
                 <MapPin size={18} className="mt-0.5 shrink-0 text-primary-500" />
-                <span>VDS building second floor office-06 Noida, Uttar Pradesh, India</span>
+                <span>{company.address}</span>
               </li>
               <li className="flex items-center gap-3 text-slate-600 text-sm">
                 <Phone size={18} className="shrink-0 text-primary-500" />
-                <span>+91 8929383065</span>
+                <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="hover:text-primary-600 transition-colors">{company.phone}</a>
               </li>
               <li className="flex items-center gap-3 text-slate-600 text-sm">
                 <Mail size={18} className="shrink-0 text-primary-500" />
-                <span>Next@nextzen.com</span>
+                <a href={`mailto:${company.email}`} className="hover:text-primary-600 transition-colors">{company.email}</a>
               </li>
             </ul>
           </div>
@@ -67,7 +68,7 @@ export function Footer() {
 
         <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm text-center md:text-left">
-            © {new Date().getFullYear()} NextzenSoftware Solution Pvt Ltd. All rights reserved.
+            © {new Date().getFullYear()} {company.legalName}. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-slate-500">
             <Link href="/privacy" className="hover:text-primary-600 transition-colors">Privacy Policy</Link>
@@ -83,6 +84,8 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
   return (
     <a
       href={href}
+      target="_blank"
+      rel="noreferrer"
       aria-label={label}
       className="p-2 bg-slate-100 text-slate-600 rounded-full hover:bg-primary-50 hover:text-primary-600 transition-colors"
     >

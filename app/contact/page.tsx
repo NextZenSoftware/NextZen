@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/Button"
 import Link from "next/link"
 import { createPageMetadata, siteName, siteUrl } from "@/lib/seo"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/Card"
+import { company } from "@/lib/company"
 
 export const metadata = createPageMetadata({
   title: "Contact NextzenSoftware",
@@ -21,7 +22,7 @@ export default function ContactPage() {
     name: siteName,
     description: 'Contact NextzenSoftware about web, app, cloud, and digital transformation projects.',
     url: siteUrl,
-    email: 'hello@nextzensoftware.com',
+    email: company.email,
     areaServed: 'Worldwide',
     serviceType: 'Software development and digital solutions',
   }
@@ -104,7 +105,7 @@ export default function ContactPage() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">Contact Information</h2>
             <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              Reach out to NextzenSoftware (nextzensoftware) through any of these channels. We&apos;re available Monday through Friday, 9 AM to 6 PM EST. For urgent matters, please use our contact form and we&apos;ll respond within 24 hours.
+              Reach out to NextzenSoftware through any of these channels. We&apos;re available {company.hours}. For urgent matters, please use our contact form and we&apos;ll respond within 24 hours.
             </p>
             
             <div className="space-y-6">
@@ -115,13 +116,13 @@ export default function ContactPage() {
                 <div className="flex-1">
                   <h3 className="font-bold text-lg mb-2 text-slate-900">Email Us</h3>
                   <p className="text-slate-600 mb-1">
-                    <a href="mailto:hello@nextzensoftware.com" className="hover:text-primary-600 transition-colors">
-                      hello@nextzensoftware.com
+                    <a href={`mailto:${company.email}`} className="hover:text-primary-600 transition-colors">
+                      {company.email}
                     </a>
                   </p>
                   <p className="text-slate-600">
-                    <a href="mailto:support@nextzensoftware.com" className="hover:text-primary-600 transition-colors">
-                      support@nextzensoftware.com
+                    <a href={`mailto:${company.supportEmail}`} className="hover:text-primary-600 transition-colors">
+                      {company.supportEmail}
                     </a>
                   </p>
                   <p className="text-sm text-slate-500 mt-2">For general inquiries and project proposals</p>
@@ -135,11 +136,11 @@ export default function ContactPage() {
                 <div className="flex-1">
                   <h3 className="font-bold text-lg mb-2 text-slate-900">Call Us</h3>
                   <p className="text-slate-600 mb-1">
-                    <a href="tel:+15551234567" className="hover:text-primary-600 transition-colors font-medium">
-                      +1 (555) 123-4567
+                    <a href={`tel:${company.phone.replace(/\s/g, "")}`} className="hover:text-primary-600 transition-colors font-medium">
+                      {company.phone}
                     </a>
                   </p>
-                  <p className="text-slate-600 mb-2">Mon-Fri: 9:00 AM - 6:00 PM EST</p>
+                    <p className="text-slate-600 mb-2">{company.hours}</p>
                   <p className="text-sm text-slate-500">Speak directly with our team for immediate assistance</p>
                 </div>
               </div>
@@ -151,9 +152,7 @@ export default function ContactPage() {
                 <div className="flex-1">
                   <h3 className="font-bold text-lg mb-2 text-slate-900">Visit Our Office</h3>
                   <p className="text-slate-600 leading-relaxed">
-                    123 Tech Park, Innovation Street<br />
-                    Silicon Valley, CA 94043<br />
-                    United States
+                    {company.address}
                   </p>
                   <p className="text-sm text-slate-500 mt-2">Schedule a visit by calling ahead or emailing us</p>
                 </div>
@@ -209,7 +208,7 @@ export default function ContactPage() {
             {[
               {
                 question: "How quickly will NextzenSoftware respond to my inquiry?",
-                answer: "We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly at +1 (555) 123-4567 during business hours (Mon-Fri, 9 AM - 6 PM EST)."
+                answer: `We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly at ${company.phone} during business hours (${company.hours}).`
               },
               {
                 question: "What services does NextzenSoftware offer?",
@@ -225,7 +224,7 @@ export default function ContactPage() {
               },
               {
                 question: "Can I visit your office in Silicon Valley?",
-                answer: "Yes! We welcome visitors at our Silicon Valley office. Please schedule your visit in advance by calling us or sending an email so we can ensure someone from our team is available to meet with you."
+                answer: "Yes! We welcome visitors at our Noida office. Please schedule your visit in advance by calling us or sending an email so we can ensure someone from our team is available to meet with you."
               }
             ].map((faq, index) => (
               <Card key={index} className="border-slate-200 hover:border-primary-300 transition-all">
