@@ -4,6 +4,7 @@ import { Star, ArrowRight, Shield, Clock, Users, Award, CheckCircle2 } from "luc
 import Link from "next/link"
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from "@/components/ui/Card"
 import { createPageMetadata } from "@/lib/seo"
+import { PaymentButton } from "@/components/payments/PaymentButton"
 
 export const metadata = createPageMetadata({
   title: "Web and Software Development Pricing",
@@ -26,6 +27,8 @@ const plans = [
       "14 days post-launch support",
     ],
     cta: "Plan my website",
+    paymentPlanId: "starter",
+    amount: 35000,
     popular: false,
   },
   {
@@ -41,6 +44,8 @@ const plans = [
       "30 days post-launch support",
     ],
     cta: "Discuss my platform",
+    paymentPlanId: "growth",
+    amount: 125000,
     popular: true,
   },
   {
@@ -56,6 +61,8 @@ const plans = [
       "90 days priority support",
     ],
     cta: "Talk to an architect",
+    paymentPlanId: "scale",
+    amount: 350000,
     popular: false,
   },
   {
@@ -71,6 +78,8 @@ const plans = [
       "Multi-product or long-term engagement",
     ],
     cta: "Request a proposal",
+    paymentPlanId: null,
+    amount: null,
     popular: false,
   },
 ]
@@ -191,7 +200,7 @@ export default function PricingPage() {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
             {plans.map((plan, index) => (
               <Card 
                 key={index} 
@@ -236,17 +245,13 @@ export default function PricingPage() {
                   </div>
                 </CardContent>
                 <CardFooter className="pt-6 pb-8 px-6">
-                  <Button 
-                    className="w-full text-base font-semibold py-6" 
-                    variant={plan.popular ? "default" : "outline"}
-                    size="lg"
-                    asChild
-                  >
-                    <Link href="/contact" className="flex items-center justify-center gap-2">
-                      {plan.cta}
-                      <ArrowRight className="w-4 h-4" />
-                    </Link>
-                  </Button>
+                  {plan.paymentPlanId && plan.amount ? (
+                    <PaymentButton planId={plan.paymentPlanId} planName={plan.name} amount={plan.amount} label={plan.cta} />
+                  ) : (
+                    <Button className="w-full gap-2 text-base font-semibold" variant="outline" size="lg" asChild>
+                      <Link href="/contact">{plan.cta}<ArrowRight className="h-4 w-4" /></Link>
+                    </Button>
+                  )}
                 </CardFooter>
               </Card>
             ))}
