@@ -41,12 +41,13 @@ const services = [
 export function ServicesSection() {
   return (
     <Section background="gray">
-      <div className="text-center mb-16">
+      <div className="mb-12 max-w-3xl">
+        <p className="eyebrow mb-4">What we do</p>
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-bold text-slate-900 mb-4"
+          className="mb-4 text-3xl font-bold tracking-tight text-slate-950 md:text-5xl"
         >
           Our Services
         </motion.h2>
@@ -58,13 +59,10 @@ export function ServicesSection() {
           className="text-lg text-slate-600 max-w-4xl mx-auto"
         >
           End-to-end digital solutions designed to scale your business, secure your infrastructure, and accelerate innovation.
-          At <strong>NextZen Software</strong>, we don’t just build software —
-we design future-ready systems that are fast, secure, and scalable.
-Our expert team delivers high-performance digital solutions tailored to your business goals, ensuring long-term growth and technical excellence.
         </motion.p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
         {services.map((service, index) => (
           <motion.div
             key={index}
@@ -74,16 +72,16 @@ Our expert team delivers high-performance digital solutions tailored to your bus
             viewport={{ once: true }}
             // whileHover={{ y: -8 }}
           >
-            <Card className="h-full hover:shadow-md transition-all duration-300 border-slate-200 bg-white ">
+            <Card className="group h-full border-slate-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-primary-200 hover:shadow-xl hover:shadow-slate-900/5">
               <CardHeader>
-                <div className="mb-4 bg-primary-50 w-16 h-16 rounded-2xl flex items-center justify-center  transition-colors duration-300">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-50 transition-colors duration-300">
                   <div className=" text-primary-500 transition-colors duration-200">
                     {/* The icon itself doesn't need to change props if handled by parent color, but lucide icons use currentColor */}
                     {/* We need to clone element to change color or rely on text color class */}
                     <div className="current-color">{service.icon}</div>
                   </div>
                 </div>
-                <CardTitle className="hover:text-primary-500 transition-colors">{service.title}</CardTitle>
+                <CardTitle className="transition-colors group-hover:text-primary-500">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-base text-slate-600 leading-relaxed">
