@@ -3,6 +3,7 @@ export type EnquiryPayload = {
   email: string
   project: string
   consent: boolean
+  source?: "contact" | "chatbot"
 }
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/

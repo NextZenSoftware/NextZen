@@ -4,16 +4,17 @@ import { company } from "@/lib/company"
 
 export function Footer() {
   return (
-    <footer className="bg-slate-50 border-t border-slate-200 pt-16 pb-8">
+    <footer className="border-t border-slate-200 bg-[#eef1f6] pb-8 pt-16">
       <div className="container-custom">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr]">
           {/* Company Info */}
           <div>
-            <Link href="/" className="font-bold text-2xl text-primary-600 mb-4 block">
-              Nextzen
+            <Link href="/" className="mb-4 flex items-center gap-2 text-lg font-bold tracking-tight text-slate-950">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-slate-950 text-sm text-white">N</span>
+              Nextzen<span className="text-primary-600">Software</span>
             </Link>
-            <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-              Empowering businesses with modern cloud solutions and cutting-edge web development. We build the future of your digital presence.
+            <p className="mb-6 max-w-xs text-sm leading-relaxed text-slate-600">
+              Digital products, cloud systems, and websites built with clarity, craft, and measurable outcomes.
             </p>
             <div className="flex gap-4">
               <SocialLink href={company.social.linkedin} icon={<Linkedin size={20} />} label="LinkedIn" />
@@ -87,7 +88,7 @@ function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode
       target="_blank"
       rel="noreferrer"
       aria-label={label}
-      className="p-2 bg-slate-100 text-slate-600 rounded-full hover:bg-primary-50 hover:text-primary-600 transition-colors"
+      className="rounded-full border border-slate-200 bg-white p-2 text-slate-600 transition-colors hover:border-primary-200 hover:bg-primary-50 hover:text-primary-600"
     >
       {icon}
     </a>
